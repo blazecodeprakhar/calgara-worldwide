@@ -845,7 +845,7 @@ export default function App() {
             <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
                 
                 {/* Left Content Column (takes 7 cols) */}
                 <div className="lg:col-span-7">
@@ -927,7 +927,7 @@ export default function App() {
                 </div>
 
                 {/* Right Visual Column (takes 5 cols) */}
-                <div className="lg:col-span-5 relative">
+                <div className="lg:col-span-5 relative flex flex-col">
                   
                   {/* Outer HUD Corner Crosshairs */}
                   <div className="absolute -top-3 -left-3 w-4 h-4 border-t-2 border-l-2 border-blue-500/40 animate-pulse" />
@@ -936,7 +936,7 @@ export default function App() {
                   <div className="absolute -bottom-3 -right-3 w-4 h-4 border-b-2 border-r-2 border-blue-500/40 animate-pulse" />
 
                   {/* Main Container */}
-                  <div className="relative aspect-square w-full rounded-2xl overflow-hidden border border-white/10 glow-border bg-black/40 flex flex-col justify-between p-4 group">
+                  <div className="relative w-full flex-grow rounded-2xl overflow-hidden border border-white/10 glow-border bg-black/40 flex flex-col justify-between p-4 group">
                     
                     {/* Background surveillance video */}
                     <video 
