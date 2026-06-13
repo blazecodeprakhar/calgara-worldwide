@@ -34,26 +34,7 @@ export const PRODUCTS: Product[] = [
       { label: "Deployment", value: "Fully Autonomous" }
     ]
   },
-  {
-    id: "02",
-    title: "Drone Jammer Series",
-    category: "COUNTER-UAS",
-    description: "Comprehensive protection against unauthorized drones by disrupting their communication, navigation, and control systems. Deployed as portable, vehicle-mounted, or stationary solutions.",
-    imageUrl: "https://images.unsplash.com/photo-1551608671-38e2f823297a?auto=format&fit=crop&w=800&q=80",
-    features: [
-      "Multi-band jamming technology",
-      "Portable and fixed deployment options",
-      "Effective against commercial and FPV drones",
-      "Rapid activation and response",
-      "Reliable operational performance"
-    ],
-    specs: [
-      { label: "Jamming Range", value: "Up to 3 km" },
-      { label: "Bands", value: "GNSS, 2.4G, 5.8G, FPV" },
-      { label: "Channels", value: "Multi-channel (5+ bands)" },
-      { label: "Activation", value: "Instantaneous" }
-    ]
-  },
+
   {
     id: "03",
     title: "Jammer Gun",

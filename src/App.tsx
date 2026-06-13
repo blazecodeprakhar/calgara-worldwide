@@ -30,9 +30,10 @@ import { Logo } from './components/Logo';
 import { PRODUCTS, type Product } from './data/products';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'privacy' | 'terms' | 'security'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'jammers' | 'privacy' | 'terms' | 'security'>('home');
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [jammerFilter, setJammerFilter] = useState<'ALL' | 'PORTABLE' | 'VEHICLE' | 'STATIONARY'>('ALL');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [d4EwsImageOpen, setD4EwsImageOpen] = useState(false);
   
@@ -118,9 +119,15 @@ export default function App() {
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest text-white/70">
             <button 
               onClick={() => { setCurrentPage('home'); setTimeout(() => document.getElementById('d4-ews')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-              className="hover:text-blue-400 transition-colors uppercase"
+              className={`hover:text-blue-400 transition-colors uppercase ${currentPage === 'home' ? 'text-white/70' : ''}`}
             >
               D⁴-EWS
+            </button>
+            <button 
+              onClick={() => { setCurrentPage('jammers'); window.scrollTo(0, 0); }} 
+              className={`hover:text-blue-400 transition-colors uppercase ${currentPage === 'jammers' ? 'text-blue-400 font-bold' : ''}`}
+            >
+              Jammer Series
             </button>
             <button 
               onClick={() => { setCurrentPage('home'); setTimeout(() => document.getElementById('systems')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
@@ -187,6 +194,12 @@ export default function App() {
             className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
           >
             D⁴-EWS System
+          </button>
+          <button 
+            onClick={() => { setCurrentPage('jammers'); setMobileMenuOpen(false); window.scrollTo(0, 0); }} 
+            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
+          >
+            Jammer Series
           </button>
           <button 
             onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('systems')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
@@ -1115,6 +1128,156 @@ export default function App() {
             </div>
           </section>
         </>
+      ) : currentPage === 'jammers' ? (
+        /* Dedicated Jammer Series Page */
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-36 pb-24 flex-grow w-full">
+          <button 
+            onClick={() => setCurrentPage('home')}
+            className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-blue-400 hover:text-blue-300 transition-colors mb-8 cursor-pointer"
+          >
+            <ArrowLeft size={14} />
+            BACK TO HOMEPAGE
+          </button>
+
+          <div className="relative mb-16 animate-fade-in">
+            {/* Ambient Glow */}
+            <div className="absolute -top-20 left-1/3 w-[30rem] h-[30rem] bg-blue-900/10 blur-[100px] rounded-full pointer-events-none -z-10" />
+            
+            <span className="text-[10px] font-semibold tracking-widest text-blue-400 uppercase bg-blue-950/60 px-4 py-1.5 rounded-full border border-blue-500/20 inline-block mb-4">
+              Product Catalog
+            </span>
+            <h1 className="font-display font-bold text-4xl sm:text-6xl tracking-tight text-white mb-6">
+              Jammer Series
+            </h1>
+            <p className="text-white/60 text-sm sm:text-base max-w-3xl leading-relaxed font-light">
+              Calgara Worldwide's professional electromagnetic disruption platforms. Engineered with multi-band sweep jamming technology to sever drone communication control links, telemetry, and GNSS navigation signals. Deployed as portable, vehicle-mounted, or stationary solutions.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3 border-b border-white/10 pb-6 mb-10 animate-fade-in">
+            {(['ALL', 'PORTABLE', 'VEHICLE', 'STATIONARY'] as const).map((filter) => {
+              const labels = {
+                ALL: 'All Jammers',
+                PORTABLE: 'Portable & Handheld',
+                VEHICLE: 'Vehicle-Mounted',
+                STATIONARY: 'Stationary & Integrated'
+              };
+              return (
+                <button
+                  key={filter}
+                  onClick={() => setJammerFilter(filter)}
+                  className={`px-5 py-2.5 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all duration-300 cursor-pointer border ${
+                    jammerFilter === filter
+                      ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-500/20'
+                      : 'bg-white/5 border-white/5 text-white/60 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  {labels[filter]}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 animate-fade-in">
+            {PRODUCTS
+              .filter(p => p.title.toLowerCase().includes('jammer') || p.title.toLowerCase().includes('jammers'))
+              .filter(p => {
+                if (jammerFilter === 'ALL') return true;
+                if (jammerFilter === 'PORTABLE') {
+                  return ['03', '04', '05', '06', '11'].includes(p.id);
+                }
+                if (jammerFilter === 'VEHICLE') {
+                  return ['07', '08'].includes(p.id);
+                }
+                if (jammerFilter === 'STATIONARY') {
+                  return ['09', '10'].includes(p.id);
+                }
+                return true;
+              })
+              .map((product) => (
+                <div 
+                  key={product.id}
+                  className="glow-card flex flex-col justify-between h-full group"
+                >
+                  <div>
+                    {/* Image Frame */}
+                    <div className="relative aspect-video w-full overflow-hidden bg-bgDark/30 border-b border-white/5">
+                      <img 
+                        src={product.imageUrl} 
+                        alt={product.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-2.5 py-1 rounded bg-bgDark/85 border border-white/10 text-[9px] font-semibold tracking-widest text-blue-400 uppercase">
+                          {product.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="font-display font-semibold text-lg text-white group-hover:text-blue-400 transition-colors mb-3">
+                        {product.title}
+                      </h3>
+                      <p className="text-xs text-white/60 leading-relaxed line-clamp-3 mb-6 font-light">
+                        {product.description}
+                      </p>
+
+                      {/* Specs Snippet */}
+                      <div className="bg-black/20 rounded-xl p-4 border border-white/5 mb-6">
+                        <span className="text-[9px] font-bold tracking-wider text-white/40 uppercase block mb-3">Technical Highlights</span>
+                        <div className="grid grid-cols-2 gap-y-3 gap-x-4">
+                          {product.specs.slice(0, 4).map((spec, index) => (
+                            <div key={index} className="flex flex-col">
+                              <span className="text-[9px] text-white/40 uppercase font-medium">{spec.label}</span>
+                              <span className="text-xs text-white font-semibold mt-0.5 truncate">{spec.value}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="px-6 pb-6 pt-2 flex gap-3">
+                    <button 
+                      onClick={() => setSelectedProduct(product)}
+                      className="flex-1 py-2.5 rounded-xl border border-white/10 text-[10px] font-bold tracking-wider text-white hover:bg-white/5 transition-colors cursor-pointer"
+                    >
+                      FULL SPECS
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setCurrentPage('home');
+                        setTimeout(() => {
+                          setContactMsg(`Hello, I would like to request technical specifications, pricing, and availability details for the Jammer: ${product.title}.`);
+                          const contactSec = document.getElementById('contact');
+                          if (contactSec) {
+                            contactSec.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }, 100);
+                      }}
+                      className="flex-1 py-2.5 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-[10px] font-bold tracking-wider text-white transition-colors cursor-pointer"
+                    >
+                      INQUIRE
+                    </button>
+                  </div>
+                </div>
+              ))}
+          </div>
+
+          <div className="rounded-2xl border border-yellow-500/10 bg-yellow-500/5 p-6 md:p-8 flex flex-col md:flex-row items-start gap-4 animate-fade-in">
+            <div className="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 flex-shrink-0">
+              <Info size={20} />
+            </div>
+            <div>
+              <h4 className="font-display font-semibold text-white text-sm uppercase tracking-wider mb-2">Government & Regulatory Compliance Notice</h4>
+              <p className="text-xs text-white/60 leading-relaxed max-w-4xl font-light">
+                The sale and operational deployment of active electromagnetic RF signal jamming equipment are strictly governed by national and international telecommunications authorities. Procurement of the Calgara Jammer Series is exclusively restricted to verified defense agencies, law enforcement personnel, and government-approved critical infrastructure operations. Technical datasheets and pricing estimates will only be released following regulatory vetting.
+              </p>
+            </div>
+          </div>
+        </main>
       ) : (
         /* Real Content Pages (Privacy Policy, Terms of Service, Security Disclaimers) */
         <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-36 pb-24 flex-grow w-full">
