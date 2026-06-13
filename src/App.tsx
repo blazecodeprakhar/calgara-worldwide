@@ -784,12 +784,12 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Product Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Product Grid - Centered Last Row Items */}
+              <div className="flex flex-wrap justify-center gap-6">
                 {filteredProducts.map(product => (
                   <div 
                     key={product.id} 
-                    className="glow-card rounded-2xl overflow-hidden flex flex-col h-full group cursor-pointer"
+                    className="glow-card rounded-2xl overflow-hidden flex flex-col group cursor-pointer w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                     onClick={() => setSelectedProduct(product)}
                   >
                     
