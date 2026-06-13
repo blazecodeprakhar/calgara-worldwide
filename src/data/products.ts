@@ -40,7 +40,7 @@ export const PRODUCTS: Product[] = [
     title: "Jammer Gun",
     category: "COUNTER-UAS",
     description: "Lightweight and portable anti-drone solution designed for fast and effective response against unauthorized UAV activity. Its ergonomic design allows operators to quickly engage drone threats while maintaining mobility.",
-    imageUrl: "https://images.unsplash.com/photo-1595590424283-b8f1d44b1c28?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Jammer Gun.png",
     features: [
       "Handheld portable design",
       "Easy operation",
@@ -220,7 +220,7 @@ export const PRODUCTS: Product[] = [
     title: "UAD-100 Handheld UAV Detector",
     category: "DETECTION & RADAR",
     description: "A compact drone detection device designed for real-time identification and monitoring of UAV activity. Uses advanced signal analysis to detect commercial, custom, and FPV drones.",
-    imageUrl: "https://images.unsplash.com/photo-1584438784894-089d6a128f3e?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/UAD-100 Handheld UAV Detector.png",
     features: [
       "Multi-UAV detection capability",
       "Remote ID decoding",
@@ -240,7 +240,7 @@ export const PRODUCTS: Product[] = [
     title: "Oil-Water Separation System",
     category: "ENVIRONMENTAL",
     description: "An advanced environmental protection solution designed to remove oil and petroleum contaminants from water surfaces. Continuously purifies water to support industrial safety and eco-conservation.",
-    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Oil-Water Separation System.png",
     features: [
       "Continuous separation process",
       "High purification efficiency",
@@ -260,7 +260,7 @@ export const PRODUCTS: Product[] = [
     title: "Bi-Section EM Fence",
     category: "SECURITY SYSTEMS",
     description: "An intelligent perimeter security solution designed to detect unauthorized intrusions with high accuracy. Creates an invisible electromagnetic protective barrier around sensitive locations.",
-    imageUrl: "https://images.unsplash.com/photo-1508847154043-be12a3b4d69e?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Bi-Section EM Fence.png",
     features: [
       "Invisible security barrier",
       "High detection accuracy",
@@ -280,7 +280,7 @@ export const PRODUCTS: Product[] = [
     title: "4-Layer Protected System (D⁴-EWS)",
     category: "DETECTION & RADAR",
     description: "A multi-layer airspace awareness and early warning system developed to detect, track, and classify low-altitude aerial threats using integrated radar, RF sensing, acoustic, and electro-optical sensors.",
-    imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/4-Layer Protected System (D⁴-EWS).png",
     features: [
       "Four-layer detection architecture",
       "Long-range surveillance capability",
