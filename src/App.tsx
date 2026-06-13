@@ -836,155 +836,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* 5. Product Details Modal/Sidebar */}
-          {selectedProduct && (
-            <div className="fixed inset-0 z-50 flex items-center justify-end">
-              {/* Backdrop mask */}
-              <div 
-                className="absolute inset-0 bg-bgDark/85 backdrop-blur-sm transition-opacity"
-                onClick={() => setSelectedProduct(null)}
-              />
-              
-              {/* Sidebar container */}
-              <div className="relative w-full max-w-2xl h-full bg-[#0a0f1d] border-l border-white/10 flex flex-col z-10 animate-slide-left shadow-2xl overflow-y-auto">
-                
-                {/* Modal Header */}
-                <div className="p-6 border-b border-white/10 flex items-center justify-between sticky top-0 bg-[#0a0f1d] z-10">
-                  <div className="flex flex-col">
-                    <span className="text-[9px] font-semibold tracking-widest text-blue-400 uppercase mb-1">
-                      {selectedProduct.category}
-                    </span>
-                    <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
-                      {selectedProduct.title}
-                    </h3>
-                  </div>
-                  <button 
-                    onClick={() => setSelectedProduct(null)}
-                    className="p-2 rounded-full hover:bg-white/5 text-white/60 hover:text-white transition-colors"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
 
-                {/* Modal Content */}
-                <div className="p-6 flex-grow flex flex-col gap-8">
-                  
-                  {/* Product Showcase Image */}
-                  <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/5">
-                    <img 
-                      src={selectedProduct.imageUrl} 
-                      alt={selectedProduct.title} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  {/* Description */}
-                  <div>
-                    <h4 className="text-[10px] font-semibold tracking-wider text-white/40 uppercase mb-2">Overview</h4>
-                    <p className="text-sm text-white/70 leading-relaxed font-light">
-                      {selectedProduct.description}
-                    </p>
-                  </div>
-
-                  {/* Key Features */}
-                  <div>
-                    <h4 className="text-[10px] font-semibold tracking-wider text-white/40 uppercase mb-3">Key Features</h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {selectedProduct.features.map((feat, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-white/80">
-                          <CheckCircle size={14} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Specifications Table - Add overflow-x-auto to resolve mobile overflow */}
-                  <div>
-                    <h4 className="text-[10px] font-semibold tracking-wider text-white/40 uppercase mb-3">Technical Specifications</h4>
-                    <div className="border border-white/5 rounded-xl overflow-x-auto overflow-y-hidden">
-                      <table className="w-full text-left border-collapse min-w-[400px]">
-                        <thead>
-                          <tr className="bg-white/5 text-[10px] text-white/50 border-b border-white/5 font-semibold">
-                            <th className="p-3">Specification Parameter</th>
-                            <th className="p-3">Operational Value</th>
-                          </tr>
-                        </thead>
-                        <tbody className="text-xs divide-y divide-white/5 text-white/80">
-                          {selectedProduct.specs.map((spec, idx) => (
-                            <tr key={idx} className="hover:bg-white/5">
-                              <td className="p-3 font-medium text-white/50">{spec.label}</td>
-                              <td className="p-3 font-semibold text-blue-400">{spec.value}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Modal Actions */}
-                <div className="p-6 border-t border-white/10 sticky bottom-0 bg-[#0a0f1d] flex gap-3">
-                  <button 
-                    onClick={() => handleRequestQuote(selectedProduct.title)}
-                    className="flex-1 py-3 px-4 rounded-xl text-center text-xs font-bold tracking-wider bg-blue-600 hover:bg-blue-500 text-white transition-colors"
-                  >
-                    REQUEST PRICING & DATASHEETS
-                  </button>
-                  <button 
-                    onClick={() => setSelectedProduct(null)}
-                    className="py-3 px-6 rounded-xl border border-white/10 text-xs font-bold text-white/80 hover:bg-white/5 transition-colors"
-                  >
-                    CLOSE
-                  </button>
-                </div>
-
-              </div>
-            </div>
-          )}
-
-          {/* D⁴-EWS Image Modal */}
-          {d4EwsImageOpen && (
-            <div 
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bgDark/90 backdrop-blur-md transition-opacity cursor-zoom-out"
-              onClick={() => setD4EwsImageOpen(false)}
-            >
-              {/* Modal Container */}
-              <div 
-                className="relative max-w-5xl w-full bg-[#0a0f1d] border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-10 animate-fade-in flex flex-col cursor-default"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="p-4 border-b border-white/10 flex justify-between items-center bg-[#0a0f1d]">
-                  <h3 className="text-xs font-semibold tracking-wider uppercase text-blue-400">
-                    D⁴-EWS System Architecture & Concept Diagram
-                  </h3>
-                  <button 
-                    onClick={() => setD4EwsImageOpen(false)}
-                    className="p-2 rounded-full hover:bg-white/5 text-white/60 hover:text-white transition-colors cursor-pointer"
-                  >
-                    <X size={18} />
-                  </button>
-                </div>
-                <div className="relative w-full overflow-hidden bg-black/40 p-2 flex items-center justify-center">
-                  <img 
-                    src="/d4-ews.jpg" 
-                    alt="D4-EWS Airspace Awareness System Diagram" 
-                    className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-inner cursor-zoom-out"
-                    onClick={() => setD4EwsImageOpen(false)}
-                  />
-                </div>
-                <div className="p-4 border-t border-white/10 bg-[#0a0f1d] flex justify-end">
-                  <button 
-                    onClick={() => setD4EwsImageOpen(false)}
-                    className="px-6 py-2 rounded-xl border border-white/10 text-xs font-bold text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
-                  >
-                    CLOSE DIAGRAM
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* 6. About Section */}
           <section id="about" className="relative py-24 border-t border-white/5 bg-bgDark/45">
@@ -1417,6 +1269,156 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* 5. Product Details Modal/Sidebar */}
+      {selectedProduct && (
+        <div className="fixed inset-0 z-50 flex items-center justify-end">
+          {/* Backdrop mask */}
+          <div 
+            className="absolute inset-0 bg-bgDark/85 backdrop-blur-sm transition-opacity"
+            onClick={() => setSelectedProduct(null)}
+          />
+          
+          {/* Sidebar container */}
+          <div className="relative w-full max-w-2xl h-full bg-[#0a0f1d] border-l border-white/10 flex flex-col z-10 animate-slide-left shadow-2xl overflow-y-auto">
+            
+            {/* Modal Header */}
+            <div className="p-6 border-b border-white/10 flex items-center justify-between sticky top-0 bg-[#0a0f1d] z-10">
+              <div className="flex flex-col">
+                <span className="text-[9px] font-semibold tracking-widest text-blue-400 uppercase mb-1">
+                  {selectedProduct.category}
+                </span>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+                  {selectedProduct.title}
+                </h3>
+              </div>
+              <button 
+                onClick={() => setSelectedProduct(null)}
+                className="p-2 rounded-full hover:bg-white/5 text-white/60 hover:text-white transition-colors"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 flex-grow flex flex-col gap-8">
+              
+              {/* Product Showcase Image */}
+              <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/5">
+                <img 
+                  src={selectedProduct.imageUrl} 
+                  alt={selectedProduct.title} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Description */}
+              <div>
+                <h4 className="text-[10px] font-semibold tracking-wider text-white/40 uppercase mb-2">Overview</h4>
+                <p className="text-sm text-white/70 leading-relaxed font-light">
+                  {selectedProduct.description}
+                </p>
+              </div>
+
+              {/* Key Features */}
+              <div>
+                <h4 className="text-[10px] font-semibold tracking-wider text-white/40 uppercase mb-3">Key Features</h4>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {selectedProduct.features.map((feat, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-white/80">
+                      <CheckCircle size={14} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Specifications Table - Add overflow-x-auto to resolve mobile overflow */}
+              <div>
+                <h4 className="text-[10px] font-semibold tracking-wider text-white/40 uppercase mb-3">Technical Specifications</h4>
+                <div className="border border-white/5 rounded-xl overflow-x-auto overflow-y-hidden">
+                  <table className="w-full text-left border-collapse min-w-[400px]">
+                    <thead>
+                      <tr className="bg-white/5 text-[10px] text-white/50 border-b border-white/5 font-semibold">
+                        <th className="p-3">Specification Parameter</th>
+                        <th className="p-3">Operational Value</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-xs divide-y divide-white/5 text-white/80">
+                      {selectedProduct.specs.map((spec, idx) => (
+                        <tr key={idx} className="hover:bg-white/5">
+                          <td className="p-3 font-medium text-white/50">{spec.label}</td>
+                          <td className="p-3 font-semibold text-blue-400">{spec.value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Modal Actions */}
+            <div className="p-6 border-t border-white/10 sticky bottom-0 bg-[#0a0f1d] flex gap-3">
+              <button 
+                onClick={() => handleRequestQuote(selectedProduct.title)}
+                className="flex-1 py-3 px-4 rounded-xl text-center text-xs font-bold tracking-wider bg-blue-600 hover:bg-blue-500 text-white transition-colors"
+              >
+                REQUEST PRICING & DATASHEETS
+              </button>
+              <button 
+                onClick={() => setSelectedProduct(null)}
+                className="py-3 px-6 rounded-xl border border-white/10 text-xs font-bold text-white/80 hover:bg-white/5 transition-colors"
+              >
+                CLOSE
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
+
+      {/* D⁴-EWS Image Modal */}
+      {d4EwsImageOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bgDark/90 backdrop-blur-md transition-opacity cursor-zoom-out"
+          onClick={() => setD4EwsImageOpen(false)}
+        >
+          {/* Modal Container */}
+          <div 
+            className="relative max-w-5xl w-full bg-[#0a0f1d] border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-10 animate-fade-in flex flex-col cursor-default"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-4 border-b border-white/10 flex justify-between items-center bg-[#0a0f1d]">
+              <h3 className="text-xs font-semibold tracking-wider uppercase text-blue-400">
+                D⁴-EWS System Architecture & Concept Diagram
+              </h3>
+              <button 
+                onClick={() => setD4EwsImageOpen(false)}
+                className="p-2 rounded-full hover:bg-white/5 text-white/60 hover:text-white transition-colors cursor-pointer"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <div className="relative w-full overflow-hidden bg-black/40 p-2 flex items-center justify-center">
+              <img 
+                src="/d4-ews.jpg" 
+                alt="D4-EWS Airspace Awareness System Diagram" 
+                className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-inner cursor-zoom-out"
+                onClick={() => setD4EwsImageOpen(false)}
+              />
+            </div>
+            <div className="p-4 border-t border-white/10 bg-[#0a0f1d] flex justify-end">
+              <button 
+                onClick={() => setD4EwsImageOpen(false)}
+                className="px-6 py-2 rounded-xl border border-white/10 text-xs font-bold text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
+              >
+                CLOSE DIAGRAM
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
