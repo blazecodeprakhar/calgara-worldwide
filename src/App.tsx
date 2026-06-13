@@ -34,6 +34,7 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [d4EwsImageOpen, setD4EwsImageOpen] = useState(false);
   
   // Contact Form State
   const [contactName, setContactName] = useState('');
@@ -300,7 +301,10 @@ export default function App() {
                 
                 {/* Left Side: System Diagram Showcase */}
                 <div className="lg:col-span-7 flex flex-col gap-8">
-                  <div className="group relative rounded-2xl overflow-hidden border border-white/10 bg-bgDark/50 shadow-2xl p-2 transition-all duration-500 hover:border-blue-500/30 hover:shadow-blue-500/5">
+                  <div 
+                    onClick={() => setD4EwsImageOpen(true)}
+                    className="group relative rounded-2xl overflow-hidden border border-white/10 bg-bgDark/50 shadow-2xl p-2 transition-all duration-500 hover:border-blue-500/30 hover:shadow-blue-500/5 cursor-zoom-in"
+                  >
                     
                     {/* Glowing Overlay effect */}
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -316,17 +320,15 @@ export default function App() {
                     <div className="p-4 flex items-center justify-between">
                       <span className="text-[10px] text-white/50 tracking-wider font-semibold uppercase flex items-center gap-1.5">
                         <Activity size={12} className="text-blue-500 animate-pulse" />
-                        System Architecture & Operational Concept
+                        System Architecture & Operational Concept (Click to expand)
                       </span>
-                      <a 
-                        href="/d4-ews.jpg" 
-                        target="_blank" 
-                        rel="noreferrer" 
-                        className="text-[10px] text-blue-400 hover:underline flex items-center gap-1"
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); setD4EwsImageOpen(true); }}
+                        className="text-[10px] text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1 cursor-pointer bg-transparent border-none"
                       >
-                        Open Full Resolution
+                        Enlarge System Diagram
                         <ChevronRight size={10} />
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -337,62 +339,67 @@ export default function App() {
                       Multi-Domain Sensor Fusion Sequence
                     </h3>
                     
-                    <div className="flex flex-col gap-6 relative before:absolute before:left-3 sm:before:left-4 before:top-4 before:bottom-4 before:w-0.5 before:bg-white/5">
+                    <div className="flex flex-col gap-6 relative before:absolute before:left-5 sm:before:left-6 before:top-4 before:bottom-4 before:w-0.5 before:bg-white/5">
                       
-                      <div className="flex gap-4 relative">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-950 border border-blue-500/30 flex items-center justify-center text-[10px] sm:text-xs font-bold text-blue-400 z-10 flex-shrink-0">
-                          1
+                      <div className="flex gap-4 relative group/step cursor-default">
+                        <div className="w-10 h-10 rounded-xl bg-blue-950/80 border border-blue-500/20 flex items-center justify-center text-blue-400 z-10 flex-shrink-0 transition-all duration-300 group-hover/step:border-blue-500 group-hover/step:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                          <Radar size={18} />
                         </div>
                         <div>
-                          <h4 className="text-xs sm:text-sm font-semibold text-white">Long-Range Radar Alert</h4>
+                          <span className="text-[9px] font-bold text-blue-400/60 tracking-wider uppercase">Step 01 / Detection</span>
+                          <h4 className="text-xs sm:text-sm font-semibold text-white group-hover/step:text-blue-400 transition-colors">Long-Range Radar Alert</h4>
                           <p className="text-[11px] sm:text-xs text-white/60 mt-1 leading-relaxed">
                             Long-range radar detects potential aerial activity and targets at extended distances (150–200 km).
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex gap-4 relative">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-950 border border-blue-500/30 flex items-center justify-center text-[10px] sm:text-xs font-bold text-blue-400 z-10 flex-shrink-0">
-                          2
+                      <div className="flex gap-4 relative group/step cursor-default">
+                        <div className="w-10 h-10 rounded-xl bg-blue-950/80 border border-blue-500/20 flex items-center justify-center text-blue-400 z-10 flex-shrink-0 transition-all duration-300 group-hover/step:border-blue-500 group-hover/step:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                          <Radio size={18} />
                         </div>
                         <div>
-                          <h4 className="text-xs sm:text-sm font-semibold text-white">RF Early Cueing & Identification</h4>
+                          <span className="text-[9px] font-bold text-blue-400/60 tracking-wider uppercase">Step 02 / Analysis</span>
+                          <h4 className="text-xs sm:text-sm font-semibold text-white group-hover/step:text-blue-400 transition-colors">RF Early Cueing & Identification</h4>
                           <p className="text-[11px] sm:text-xs text-white/60 mt-1 leading-relaxed">
                             RF scanning layer identifies communication signals, control links, and decodes telemetry (up to 70 km).
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex gap-4 relative">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-950 border border-blue-500/30 flex items-center justify-center text-[10px] sm:text-xs font-bold text-blue-400 z-10 flex-shrink-0">
-                          3
+                      <div className="flex gap-4 relative group/step cursor-default">
+                        <div className="w-10 h-10 rounded-xl bg-blue-950/80 border border-blue-500/20 flex items-center justify-center text-blue-400 z-10 flex-shrink-0 transition-all duration-300 group-hover/step:border-blue-500 group-hover/step:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                          <Mic size={18} />
                         </div>
                         <div>
-                          <h4 className="text-xs sm:text-sm font-semibold text-white">Persistent Acoustic Tracking</h4>
+                          <span className="text-[9px] font-bold text-blue-400/60 tracking-wider uppercase">Step 03 / Tracking</span>
+                          <h4 className="text-xs sm:text-sm font-semibold text-white group-hover/step:text-blue-400 transition-colors">Persistent Acoustic Tracking</h4>
                           <p className="text-[11px] sm:text-xs text-white/60 mt-1 leading-relaxed">
                             Distributed ground audio sensors capture micro-noises to track low-altitude movements in terrain-masked areas (up to 10 km).
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex gap-4 relative">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-950 border border-blue-500/30 flex items-center justify-center text-[10px] sm:text-xs font-bold text-blue-400 z-10 flex-shrink-0">
-                          4
+                      <div className="flex gap-4 relative group/step cursor-default">
+                        <div className="w-10 h-10 rounded-xl bg-blue-950/80 border border-blue-500/20 flex items-center justify-center text-blue-400 z-10 flex-shrink-0 transition-all duration-300 group-hover/step:border-blue-500 group-hover/step:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                          <Eye size={18} />
                         </div>
                         <div>
-                          <h4 className="text-xs sm:text-sm font-semibold text-white">Optical / Thermal IR Target Confirmation</h4>
+                          <span className="text-[9px] font-bold text-blue-400/60 tracking-wider uppercase">Step 04 / Verification</span>
+                          <h4 className="text-xs sm:text-sm font-semibold text-white group-hover/step:text-blue-400 transition-colors">Optical / Thermal IR Target Confirmation</h4>
                           <p className="text-[11px] sm:text-xs text-white/60 mt-1 leading-relaxed">
                             EO/IR electro-optical trackers lock on target to verify, confirm visual identity, and assess payload parameters (up to 5 km).
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex gap-4 relative">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-600 border border-blue-400/50 flex items-center justify-center text-[10px] sm:text-xs font-bold text-white z-10 flex-shrink-0 shadow-lg shadow-blue-500/20">
-                          5
+                      <div className="flex gap-4 relative group/step cursor-default">
+                        <div className="w-10 h-10 rounded-xl bg-blue-600 border border-blue-400/50 flex items-center justify-center text-white z-10 flex-shrink-0 transition-all duration-300 group-hover/step:bg-blue-500 group-hover/step:shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                          <Cpu size={18} />
                         </div>
                         <div>
-                          <h4 className="text-xs sm:text-sm font-semibold text-blue-400">Command Center Fusion</h4>
+                          <span className="text-[9px] font-bold text-blue-400 tracking-wider uppercase">Step 05 / Mitigation</span>
+                          <h4 className="text-xs sm:text-sm font-semibold text-blue-400 transition-colors">Command Center Fusion</h4>
                           <p className="text-[11px] sm:text-xs text-white/70 mt-1 leading-relaxed">
                             Data is aggregated in a unified Command & Response central hub for instantaneous operator awareness and threat mitigation.
                           </p>
@@ -908,6 +915,47 @@ export default function App() {
                   </button>
                 </div>
 
+              </div>
+            </div>
+          )}
+
+          {/* D⁴-EWS Image Modal */}
+          {d4EwsImageOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              {/* Backdrop */}
+              <div 
+                className="absolute inset-0 bg-bgDark/95 backdrop-blur-md transition-opacity"
+                onClick={() => setD4EwsImageOpen(false)}
+              />
+              
+              {/* Modal Container */}
+              <div className="relative max-w-5xl w-full bg-[#0a0f1d] border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-10 animate-fade-in flex flex-col">
+                <div className="p-4 border-b border-white/10 flex justify-between items-center bg-[#0a0f1d]">
+                  <h3 className="text-xs font-semibold tracking-wider uppercase text-blue-400">
+                    D⁴-EWS System Architecture & Concept Diagram
+                  </h3>
+                  <button 
+                    onClick={() => setD4EwsImageOpen(false)}
+                    className="p-2 rounded-full hover:bg-white/5 text-white/60 hover:text-white transition-colors cursor-pointer"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+                <div className="relative w-full overflow-hidden bg-black/40 p-2 flex items-center justify-center">
+                  <img 
+                    src="/d4-ews.jpg" 
+                    alt="D4-EWS Airspace Awareness System Diagram" 
+                    className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-inner"
+                  />
+                </div>
+                <div className="p-4 border-t border-white/10 bg-[#0a0f1d] flex justify-end">
+                  <button 
+                    onClick={() => setD4EwsImageOpen(false)}
+                    className="px-6 py-2 rounded-xl border border-white/10 text-xs font-bold text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
+                  >
+                    CLOSE DIAGRAM
+                  </button>
+                </div>
               </div>
             </div>
           )}
