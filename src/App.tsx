@@ -189,14 +189,14 @@ export default function App() {
                 loop 
                 muted 
                 playsInline 
-                className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-55"
+                className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-25"
               >
                 <source src="/video/video_intro.webm" type="video/webm" />
               </video>
               
               {/* Dark ambient gradients overlays - Make video a little darker */}
-              <div className="absolute inset-0 bg-gradient-to-t from-bgDark via-bgDark/60 to-bgDark/45 z-10" />
-              <div className="absolute inset-0 bg-radial-gradient from-transparent via-bgDark/55 to-bgDark z-10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-bgDark via-bgDark/70 to-bgDark/50 z-10" />
+              <div className="absolute inset-0 bg-radial-gradient from-transparent via-bgDark/65 to-bgDark z-10" />
             </div>
 
             {/* Hero Content */}
