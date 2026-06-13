@@ -191,7 +191,7 @@ export default function App() {
                 playsInline 
                 className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-55"
               >
-                <source src="/video/intro.mp4" type="video/mp4" />
+                <source src="/video/video_intro.webm" type="video/webm" />
               </video>
               
               {/* Dark ambient gradients overlays - Make video a little darker */}
