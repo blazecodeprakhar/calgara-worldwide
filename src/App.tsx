@@ -14,7 +14,17 @@ import {
   ArrowLeft,
   FileText,
   ShieldCheck,
-  Scale
+  Scale,
+  Radar,
+  Radio,
+  Mic,
+  Eye,
+  Cpu,
+  Shield,
+  Activity,
+  Award,
+  Building,
+  Info
 } from 'lucide-react';
 import { Logo } from './components/Logo';
 import { PRODUCTS, type Product } from './data/products';
@@ -94,6 +104,12 @@ export default function App() {
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest text-white/70">
             <button 
+              onClick={() => { setCurrentPage('home'); setTimeout(() => document.getElementById('d4-ews')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+              className="hover:text-blue-400 transition-colors uppercase"
+            >
+              D⁴-EWS
+            </button>
+            <button 
               onClick={() => { setCurrentPage('home'); setTimeout(() => document.getElementById('systems')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
               className="hover:text-blue-400 transition-colors uppercase"
             >
@@ -153,6 +169,12 @@ export default function App() {
             ? 'opacity-100 translate-y-0 pointer-events-auto' 
             : 'opacity-0 -translate-y-4 pointer-events-none'
         }`}>
+          <button 
+            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('d4-ews')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
+          >
+            D⁴-EWS System
+          </button>
           <button 
             onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('systems')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
             className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
@@ -244,6 +266,399 @@ export default function App() {
                   Request Datasheet
                 </a>
               </div>
+            </div>
+          </section>
+
+          {/* D⁴-EWS Airspace Awareness System Spotlight */}
+          <section id="d4-ews" className="relative py-24 border-b border-white/5 bg-bgDark/80 overflow-hidden">
+            
+            {/* Ambient Background Glows */}
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[35rem] h-[35rem] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none z-0" />
+            <div className="absolute bottom-10 right-10 w-[25rem] h-[25rem] bg-blue-950/10 blur-[100px] rounded-full pointer-events-none z-0" />
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 z-10">
+              
+              {/* Heading & Badge */}
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-blue-400 uppercase bg-blue-950/50 px-4 py-1.5 rounded-full border border-blue-500/20 inline-block mb-4">
+                  Tactical Airspace Spotlight
+                </span>
+                <h2 className="font-display font-bold text-3xl md:text-5xl tracking-tight text-white mb-4">
+                  D⁴-EWS Airspace Awareness System
+                </h2>
+                <p className="text-blue-400 font-medium text-xs sm:text-sm md:text-base mb-6 tracking-wide uppercase">
+                  Distributed 4-Layer Airspace Awareness System & Early Warning Platform
+                </p>
+                <div className="w-12 h-0.5 bg-blue-500 mx-auto mb-8" />
+                <p className="text-white/70 text-xs sm:text-sm md:text-base leading-relaxed font-light">
+                  D⁴-EWS is a distributed multi-domain early warning system designed to detect, track, and classify low-altitude aerial threats, including FPV drones, UAVs, and low-signature airborne objects. The system integrates four complementary sensing layers, enabling reliable detection even in complex operational environments. The architecture is designed as a scalable sensor network, providing persistent low-altitude airspace awareness for military bases, border areas, and critical infrastructure.
+                </p>
+              </div>
+
+              {/* Main Content Layout - Split 2 Columns */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+                
+                {/* Left Side: System Diagram Showcase */}
+                <div className="lg:col-span-7 flex flex-col gap-8">
+                  <div className="group relative rounded-2xl overflow-hidden border border-white/10 bg-bgDark/50 shadow-2xl p-2 transition-all duration-500 hover:border-blue-500/30 hover:shadow-blue-500/5">
+                    
+                    {/* Glowing Overlay effect */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    
+                    <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-black/40">
+                      <img 
+                        src="/d4-ews.jpg" 
+                        alt="D4-EWS Airspace Awareness System Diagram" 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                      />
+                    </div>
+                    
+                    <div className="p-4 flex items-center justify-between">
+                      <span className="text-[10px] text-white/50 tracking-wider font-semibold uppercase flex items-center gap-1.5">
+                        <Activity size={12} className="text-blue-500 animate-pulse" />
+                        System Architecture & Operational Concept
+                      </span>
+                      <a 
+                        href="/d4-ews.jpg" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="text-[10px] text-blue-400 hover:underline flex items-center gap-1"
+                      >
+                        Open Full Resolution
+                        <ChevronRight size={10} />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Operational Concept / Steps */}
+                  <div className="glow-card p-6 sm:p-8 rounded-2xl">
+                    <h3 className="font-display font-semibold text-lg text-white mb-6 flex items-center gap-2 border-b border-white/5 pb-3">
+                      <Cpu size={18} className="text-blue-400" />
+                      Multi-Domain Sensor Fusion Sequence
+                    </h3>
+                    
+                    <div className="flex flex-col gap-6 relative before:absolute before:left-3 sm:before:left-4 before:top-4 before:bottom-4 before:w-0.5 before:bg-white/5">
+                      
+                      <div className="flex gap-4 relative">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-950 border border-blue-500/30 flex items-center justify-center text-[10px] sm:text-xs font-bold text-blue-400 z-10 flex-shrink-0">
+                          1
+                        </div>
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-semibold text-white">Long-Range Radar Alert</h4>
+                          <p className="text-[11px] sm:text-xs text-white/60 mt-1 leading-relaxed">
+                            Long-range radar detects potential aerial activity and targets at extended distances (150–200 km).
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-4 relative">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-950 border border-blue-500/30 flex items-center justify-center text-[10px] sm:text-xs font-bold text-blue-400 z-10 flex-shrink-0">
+                          2
+                        </div>
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-semibold text-white">RF Early Cueing & Identification</h4>
+                          <p className="text-[11px] sm:text-xs text-white/60 mt-1 leading-relaxed">
+                            RF scanning layer identifies communication signals, control links, and decodes telemetry (up to 70 km).
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-4 relative">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-950 border border-blue-500/30 flex items-center justify-center text-[10px] sm:text-xs font-bold text-blue-400 z-10 flex-shrink-0">
+                          3
+                        </div>
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-semibold text-white">Persistent Acoustic Tracking</h4>
+                          <p className="text-[11px] sm:text-xs text-white/60 mt-1 leading-relaxed">
+                            Distributed ground audio sensors capture micro-noises to track low-altitude movements in terrain-masked areas (up to 10 km).
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-4 relative">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-950 border border-blue-500/30 flex items-center justify-center text-[10px] sm:text-xs font-bold text-blue-400 z-10 flex-shrink-0">
+                          4
+                        </div>
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-semibold text-white">Optical / Thermal IR Target Confirmation</h4>
+                          <p className="text-[11px] sm:text-xs text-white/60 mt-1 leading-relaxed">
+                            EO/IR electro-optical trackers lock on target to verify, confirm visual identity, and assess payload parameters (up to 5 km).
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-4 relative">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-600 border border-blue-400/50 flex items-center justify-center text-[10px] sm:text-xs font-bold text-white z-10 flex-shrink-0 shadow-lg shadow-blue-500/20">
+                          5
+                        </div>
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-semibold text-blue-400">Command Center Fusion</h4>
+                          <p className="text-[11px] sm:text-xs text-white/70 mt-1 leading-relaxed">
+                            Data is aggregated in a unified Command & Response central hub for instantaneous operator awareness and threat mitigation.
+                          </p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Right Side: The 4-Layer Detection Architecture */}
+                <div className="lg:col-span-5 flex flex-col gap-6">
+                  
+                  <div className="flex flex-col mb-4">
+                    <span className="text-[10px] font-bold tracking-widest text-blue-400 uppercase">Detection Blueprint</span>
+                    <h3 className="font-display font-semibold text-xl text-white mt-1">4-Layer Integrated Detection Architecture</h3>
+                  </div>
+
+                  {/* Layer Cards */}
+                  
+                  {/* Layer 1 */}
+                  <div className="glow-card p-5 rounded-2xl flex gap-4 border-l-2 border-l-blue-500">
+                    <div className="w-10 h-10 rounded-xl bg-blue-950 border border-blue-500/25 flex items-center justify-center text-blue-400 flex-shrink-0">
+                      <Radar size={18} />
+                    </div>
+                    <div className="flex-grow">
+                      <div className="flex justify-between items-baseline gap-2">
+                        <h4 className="text-sm font-bold text-white font-display">RADAR LAYER</h4>
+                        <span className="text-[10px] font-mono font-bold text-blue-400 px-2 py-0.5 bg-blue-950/50 border border-blue-500/20 rounded">
+                          150–200 km
+                        </span>
+                      </div>
+                      <p className="text-xs text-white/50 mt-0.5">Technology: Long-range radar</p>
+                      <p className="text-xs sm:text-sm text-white/75 mt-2 leading-relaxed">
+                        Performs wide-area scans and early warning to register airborne signatures at strategic distances.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Layer 2 */}
+                  <div className="glow-card p-5 rounded-2xl flex gap-4 border-l-2 border-l-blue-400">
+                    <div className="w-10 h-10 rounded-xl bg-blue-950 border border-blue-400/25 flex items-center justify-center text-blue-400 flex-shrink-0">
+                      <Radio size={18} />
+                    </div>
+                    <div className="flex-grow">
+                      <div className="flex justify-between items-baseline gap-2">
+                        <h4 className="text-sm font-bold text-white font-display">RF DETECTION LAYER</h4>
+                        <span className="text-[10px] font-mono font-bold text-blue-400 px-2 py-0.5 bg-blue-950/50 border border-blue-400/20 rounded">
+                          Up to 70 km
+                        </span>
+                      </div>
+                      <p className="text-xs text-white/50 mt-0.5">Technology: RF signal detection</p>
+                      <p className="text-xs sm:text-sm text-white/75 mt-2 leading-relaxed">
+                        Intercepts drone communication frequencies, telemetry links, control signals, and RF signatures.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Layer 3 */}
+                  <div className="glow-card p-5 rounded-2xl flex gap-4 border-l-2 border-l-emerald-500">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-950/30 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                      <Mic size={18} />
+                    </div>
+                    <div className="flex-grow">
+                      <div className="flex justify-between items-baseline gap-2">
+                        <h4 className="text-sm font-bold text-white font-display">ACOUSTIC LAYER</h4>
+                        <span className="text-[10px] font-mono font-bold text-emerald-400 px-2 py-0.5 bg-emerald-950/35 border border-emerald-500/20 rounded">
+                          0.7–10 km
+                        </span>
+                      </div>
+                      <p className="text-xs text-white/50 mt-0.5">Technology: Distributed audio sensors</p>
+                      <p className="text-xs sm:text-sm text-white/75 mt-2 leading-relaxed">
+                        Maintains passive tracking of low-altitude movements, bypassing radio silence or terrain-masking.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Layer 4 */}
+                  <div className="glow-card p-5 rounded-2xl flex gap-4 border-l-2 border-l-amber-500">
+                    <div className="w-10 h-10 rounded-xl bg-amber-950/30 border border-amber-500/20 flex items-center justify-center text-amber-400 flex-shrink-0">
+                      <Eye size={18} />
+                    </div>
+                    <div className="flex-grow">
+                      <div className="flex justify-between items-baseline gap-2">
+                        <h4 className="text-sm font-bold text-white font-display">EO / IR LAYER</h4>
+                        <span className="text-[10px] font-mono font-bold text-amber-400 px-2 py-0.5 bg-amber-950/35 border border-amber-500/20 rounded">
+                          Up to 5 km
+                        </span>
+                      </div>
+                      <p className="text-xs text-white/50 mt-0.5">Technology: Optical / thermal systems</p>
+                      <p className="text-xs sm:text-sm text-white/75 mt-2 leading-relaxed">
+                        Completes target acquisition via high-definition thermal/optical camera sensors for ultimate confirmation and identification.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* Grid 2: Capabilities, System Function, and Cooperation */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                
+                {/* Card A: Key Capabilities */}
+                <div className="glow-card p-6 sm:p-8 rounded-2xl flex flex-col gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-950 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                    <CheckCircle size={18} />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg text-white">Key System Capabilities</h3>
+                  <ul className="flex flex-col gap-3 text-xs sm:text-sm text-white/70 mt-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-bold">•</span>
+                      <span>Detection of low-altitude and terrain-masking UAVs.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-bold">•</span>
+                      <span>Capability to detect RF-silent and autonomous drones.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-bold">•</span>
+                      <span>Distributed architecture with high resilience to damage or interference.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-bold">•</span>
+                      <span>Passive sensing layers resistant to electronic warfare (EW).</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-bold">•</span>
+                      <span>Scalable deployment from single-site protection to large-area coverage.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-bold">•</span>
+                      <span>Rapid deployment capability with minimal infrastructure requirements.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Card B: Functions & Integration */}
+                <div className="glow-card p-6 sm:p-8 rounded-2xl flex flex-col gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-950 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                    <Layers size={18} />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg text-white">System Function & Integration</h3>
+                  <div className="mt-2 flex flex-col gap-4">
+                    <div>
+                      <h4 className="text-[10px] font-bold text-white/40 uppercase tracking-wider mb-2">Core Deliverables</h4>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <span className="px-2.5 py-1.5 rounded bg-white/5 border border-white/5 text-white/80">Early Warning</span>
+                        <span className="px-2.5 py-1.5 rounded bg-white/5 border border-white/5 text-white/80">Target Acquisition</span>
+                        <span className="px-2.5 py-1.5 rounded bg-white/5 border border-white/5 text-white/80">Real-Time Tracking</span>
+                        <span className="px-2.5 py-1.5 rounded bg-white/5 border border-white/5 text-white/80">Threat Classification</span>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-[10px] font-bold text-white/40 uppercase tracking-wider mb-2">External Interoperability</h4>
+                      <p className="text-xs text-white/60 leading-relaxed mb-2">
+                        Designed with open architecture to provide accurate targeting telemetry and data to engage:
+                      </p>
+                      <ul className="text-xs text-white/70 flex flex-col gap-1.5 pl-1">
+                        <li>• RF Jamming systems</li>
+                        <li>• Directed Energy (Laser) systems</li>
+                        <li>• Air defense guns</li>
+                        <li>• Short-range missile systems</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card C: Readiness & Cooperation */}
+                <div className="glow-card p-6 sm:p-8 rounded-2xl flex flex-col gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-950 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                    <Shield size={18} />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg text-white">Cooperation & Indian Integration</h3>
+                  <div className="mt-2 flex flex-col gap-4">
+                    <div>
+                      <h4 className="text-[10px] font-bold text-white/40 uppercase tracking-wider mb-1">Make in India Compliant</h4>
+                      <p className="text-xs text-white/60 leading-relaxed">
+                        The D⁴-EWS system architecture actively supports local production and industrial collaboration. Subject to agreement, the system can be:
+                      </p>
+                      <ul className="text-xs text-white/75 flex flex-col gap-1 mt-2 pl-1 font-semibold">
+                        <li>• Manufactured in India</li>
+                        <li>• Assembled using local industrial partners</li>
+                        <li>• Adapted to national defence requirements</li>
+                      </ul>
+                    </div>
+                    <div className="pt-2 border-t border-white/5">
+                      <h4 className="text-[10px] font-bold text-white/40 uppercase tracking-wider mb-1">Academic & Technical Backing</h4>
+                      <p className="text-[11px] text-white/60 leading-relaxed">
+                        All core system components are based on existing and validated technologies. Core technologies have been developed and tested by research teams associated with <strong>Prof. Nathan Blaunstein</strong>, particularly in RF sensing and signal processing.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Application Areas Section */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-t border-white/5 pt-12">
+                <div>
+                  <span className="text-[10px] font-bold tracking-widest text-blue-400 uppercase">Operational Deployment</span>
+                  <h3 className="font-display font-semibold text-2xl text-white mt-1 mb-4">Strategic Protection Spheres</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-3 bg-white/5 border border-white/5 rounded-xl flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-blue-950/50 flex items-center justify-center text-blue-400"><Building size={16} /></div>
+                      <span className="text-xs font-semibold text-white/80">Military Bases</span>
+                    </div>
+                    <div className="p-3 bg-white/5 border border-white/5 rounded-xl flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-blue-950/50 flex items-center justify-center text-blue-400"><MapPin size={16} /></div>
+                      <span className="text-xs font-semibold text-white/80">Border Surveillance</span>
+                    </div>
+                    <div className="p-3 bg-white/5 border border-white/5 rounded-xl flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-blue-950/50 flex items-center justify-center text-blue-400"><Shield size={16} /></div>
+                      <span className="text-xs font-semibold text-white/80">Critical Utilities</span>
+                    </div>
+                    <div className="p-3 bg-white/5 border border-white/5 rounded-xl flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-blue-950/50 flex items-center justify-center text-blue-400"><Radar size={16} /></div>
+                      <span className="text-xs font-semibold text-white/80">Airspace Monitoring</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="glow-card p-6 sm:p-8 rounded-2xl border-l-4 border-l-blue-600">
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-2">
+                    <Info size={14} className="text-blue-400" />
+                    Distributed Airspace Infrastructure
+                  </h4>
+                  <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light mb-4">
+                    "D⁴-EWS is not only a counter-UAV solution. It represents a <strong>Distributed Low-Altitude Airspace Awareness Infrastructure</strong> capable of forming the foundation for national-level security systems."
+                  </p>
+                  
+                  <div className="border-t border-white/10 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <span className="text-[10px] text-white/40 block">Technical Leads</span>
+                      <span className="text-xs font-semibold text-blue-400">Prof. Natan Blaushtein & Eng. Evgeny Rolbin</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-[10px] text-white/40 block">Release Date</span>
+                      <span className="text-xs font-mono font-bold text-white/80">31/03/2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Next Steps CTA */}
+              <div className="mt-12 text-center bg-blue-950/35 border border-blue-500/10 p-6 rounded-2xl max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div className="text-left">
+                  <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                    <Award size={16} className="text-blue-400" />
+                    Proposed Next Steps
+                  </h4>
+                  <ul className="text-xs text-white/60 mt-1 flex flex-wrap gap-x-4 gap-y-1">
+                    <li>• Demonstration prototype development</li>
+                    <li>• Technical evaluation with Indian authorities</li>
+                    <li>• Pilot deployment for operational validation</li>
+                  </ul>
+                </div>
+                <button 
+                  onClick={() => handleRequestQuote("D⁴-EWS System Demonstration")}
+                  className="px-6 py-2.5 rounded-full text-[10px] font-bold tracking-widest bg-blue-600 hover:bg-blue-500 text-white border border-blue-400/25 glow-border hover:shadow-lg transition-all-300 whitespace-nowrap"
+                >
+                  REQUEST EVALUATION
+                </button>
+              </div>
+
             </div>
           </section>
 
