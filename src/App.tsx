@@ -938,12 +938,16 @@ export default function App() {
                   {/* Main Container */}
                   <div className="relative aspect-square w-full rounded-2xl overflow-hidden border border-white/10 glow-border bg-black/40 flex flex-col justify-between p-4 group">
                     
-                    {/* Background surveillance photo */}
-                    <img 
-                      src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" 
-                      alt="Radar surveillance station" 
+                    {/* Background surveillance video */}
+                    <video 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline 
                       className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-1000"
-                    />
+                    >
+                      <source src="/video/video_intro.webm" type="video/webm" />
+                    </video>
 
                     {/* Stylized CSS Radar Sweep Sweep Animation overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-bgDark via-bgDark/80 to-transparent pointer-events-none z-0" />
