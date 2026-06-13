@@ -58,6 +58,18 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
+  // Lock scroll when modal is open
+  useEffect(() => {
+    if (selectedProduct || d4EwsImageOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedProduct, d4EwsImageOpen]);
+
   const categories = ['ALL', 'COUNTER-UAS', 'DETECTION & RADAR', 'SECURITY SYSTEMS', 'ENVIRONMENTAL'];
 
   const filteredProducts = selectedCategory === 'ALL' 
@@ -921,15 +933,15 @@ export default function App() {
 
           {/* D⁴-EWS Image Modal */}
           {d4EwsImageOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-              {/* Backdrop */}
-              <div 
-                className="absolute inset-0 bg-bgDark/95 backdrop-blur-md transition-opacity"
-                onClick={() => setD4EwsImageOpen(false)}
-              />
-              
+            <div 
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bgDark/90 backdrop-blur-md transition-opacity cursor-zoom-out"
+              onClick={() => setD4EwsImageOpen(false)}
+            >
               {/* Modal Container */}
-              <div className="relative max-w-5xl w-full bg-[#0a0f1d] border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-10 animate-fade-in flex flex-col">
+              <div 
+                className="relative max-w-5xl w-full bg-[#0a0f1d] border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-10 animate-fade-in flex flex-col cursor-default"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <div className="p-4 border-b border-white/10 flex justify-between items-center bg-[#0a0f1d]">
                   <h3 className="text-xs font-semibold tracking-wider uppercase text-blue-400">
                     D⁴-EWS System Architecture & Concept Diagram
@@ -945,7 +957,8 @@ export default function App() {
                   <img 
                     src="/d4-ews.jpg" 
                     alt="D4-EWS Airspace Awareness System Diagram" 
-                    className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-inner"
+                    className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-inner cursor-zoom-out"
+                    onClick={() => setD4EwsImageOpen(false)}
                   />
                 </div>
                 <div className="p-4 border-t border-white/10 bg-[#0a0f1d] flex justify-end">
