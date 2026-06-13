@@ -9,7 +9,6 @@ import {
   WifiOff, 
   Crosshair, 
   CheckCircle,
-  Menu,
   ChevronRight,
   Lock,
   ArrowLeft,
@@ -130,50 +129,61 @@ export default function App() {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Custom Morphing Hamburger Button */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-            className="md:hidden p-2 text-white/80 hover:text-white"
+            className="md:hidden flex flex-col justify-center items-center w-8 h-8 relative focus:outline-none z-50"
+            aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            <span className={`block absolute h-0.5 w-6 bg-white/80 transition-all duration-300 ease-in-out ${
+              mobileMenuOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
+            }`} />
+            <span className={`block absolute h-0.5 w-6 bg-white/80 transition-all duration-300 ease-in-out ${
+              mobileMenuOpen ? 'opacity-0' : 'opacity-100'
+            }`} />
+            <span className={`block absolute h-0.5 w-6 bg-white/80 transition-all duration-300 ease-in-out ${
+              mobileMenuOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'
+            }`} />
           </button>
         </div>
 
-        {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-bgDark/98 border-b border-white/10 backdrop-blur-xl px-6 py-8 flex flex-col gap-6 animate-fade-in shadow-xl">
-            <button 
-              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('systems')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-              className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-            >
-              Systems
-            </button>
-            <button 
-              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('capabilities')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-              className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-            >
-              Capabilities
-            </button>
-            <button 
-              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-              className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-            >
-              About
-            </button>
-            <button 
-              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-              className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-            >
-              Contact
-            </button>
-            <button 
-              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}), 100); }}
-              className="py-3 text-center rounded-lg text-sm font-semibold bg-blue-600 text-white"
-            >
-              Request Details
-            </button>
-          </div>
-        )}
+        {/* Mobile Navigation Drawer with smooth animations */}
+        <div className={`md:hidden absolute top-full left-0 w-full bg-bgDark/98 border-b border-white/10 backdrop-blur-xl px-6 py-8 flex flex-col gap-6 shadow-xl transition-all duration-300 ease-in-out ${
+          mobileMenuOpen 
+            ? 'opacity-100 translate-y-0 pointer-events-auto' 
+            : 'opacity-0 -translate-y-4 pointer-events-none'
+        }`}>
+          <button 
+            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('systems')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
+          >
+            Systems
+          </button>
+          <button 
+            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('capabilities')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
+          >
+            Capabilities
+          </button>
+          <button 
+            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
+          >
+            About
+          </button>
+          <button 
+            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
+          >
+            Contact
+          </button>
+          <button 
+            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}), 100); }}
+            className="py-3 text-center rounded-lg text-sm font-semibold bg-blue-600 text-white"
+          >
+            Request Details
+          </button>
+        </div>
       </header>
 
       {/* Main Page Routing */}
@@ -204,11 +214,11 @@ export default function App() {
               
               {/* Main Heading - Larger & Blue glow replaced with black shadow */}
               <h1 
-                className="font-display font-extrabold text-6xl sm:text-7xl md:text-9xl tracking-tight text-white mb-6 leading-none select-none"
+                className="font-display font-extrabold text-5xl sm:text-7xl md:text-9xl tracking-tight text-white mb-6 leading-none select-none"
                 style={{ textShadow: '0 4px 12px rgba(0,0,0,0.85)' }}
               >
                 CALGARA
-                <span className="block text-3xl sm:text-4xl md:text-6xl font-light text-blue-400 tracking-[0.2em] mt-3">
+                <span className="block text-xl sm:text-4xl md:text-6xl font-light text-blue-400 tracking-[0.15em] sm:tracking-[0.2em] mt-3">
                   WORLDWIDE
                 </span>
               </h1>
@@ -736,7 +746,7 @@ export default function App() {
           <div className="flex flex-col items-center md:items-start gap-3">
             <Logo />
             <div className="text-[10px] text-white/40 tracking-wider text-center md:text-left max-w-xs mt-2">
-              E E 201 Globe Heights, Film City Road, Gokuldham, Goregaon East, Mumbai 400063
+              E 201 Globe Heights, Film City Road, Gokuldham, Goregaon East, Mumbai 400063
             </div>
           </div>
 
