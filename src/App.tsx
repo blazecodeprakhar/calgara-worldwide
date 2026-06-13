@@ -839,30 +839,175 @@ export default function App() {
 
 
           {/* 6. About Section */}
-          <section id="about" className="relative py-24 border-t border-white/5 bg-bgDark/45">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <section id="about" className="relative py-24 border-t border-white/5 bg-bgDark/45 overflow-hidden">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
-                <div>
-                  <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Operational Mission</span>
-                  <h2 className="font-display font-bold text-3xl md:text-5xl tracking-tight text-white mt-2 mb-6">
-                    Protecting High-Risk Spheres Worldwide
+                {/* Left Content Column (takes 7 cols) */}
+                <div className="lg:col-span-7">
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Operational Mission</span>
+                  </div>
+                  
+                  <h2 className="font-display font-bold text-3xl md:text-5xl tracking-tight text-white mb-6 leading-tight">
+                    Protecting <span className="bg-gradient-to-r from-blue-400 via-blue-200 to-white bg-clip-text text-transparent">High-Risk Spheres</span> Worldwide
                   </h2>
+
                   <p className="text-white/60 text-xs sm:text-sm md:text-base leading-relaxed mb-6 font-light">
                     Calgara worldwide develops intelligence-led countermeasures to neutralize critical airspace vulnerabilities. We prioritize advanced RF scanning, directional interference networks, and intelligent kinetic drones built to operate seamlessly under severe operational environments.
                   </p>
-                  <p className="text-white/60 text-xs sm:text-sm md:text-base leading-relaxed font-light">
+                  <p className="text-white/60 text-xs sm:text-sm md:text-base leading-relaxed mb-10 font-light">
                     Our global footprint is backed by real engineering innovation and a dedicated commitment to environmental conservation through custom separation systems.
                   </p>
+
+                  {/* Tactical Pillars Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    {/* Pillar 1 */}
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300 group">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/20 transition-colors">
+                          <Shield size={16} />
+                        </div>
+                        <h4 className="text-xs font-bold text-white tracking-wide uppercase">Military Facilities</h4>
+                      </div>
+                      <p className="text-white/50 text-[11px] leading-relaxed">
+                        Shielding forward operating bases, command posts, and ammunition stores from FPV swarm incursions.
+                      </p>
+                    </div>
+
+                    {/* Pillar 2 */}
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300 group">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/20 transition-colors">
+                          <Building size={16} />
+                        </div>
+                        <h4 className="text-xs font-bold text-white tracking-wide uppercase">Critical Infrastructure</h4>
+                      </div>
+                      <p className="text-white/50 text-[11px] leading-relaxed">
+                        Securing nuclear power stations, refining facilities, and civil transport terminals from hostile aerial recon.
+                      </p>
+                    </div>
+
+                    {/* Pillar 3 */}
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300 group">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/20 transition-colors">
+                          <Radar size={16} />
+                        </div>
+                        <h4 className="text-xs font-bold text-white tracking-wide uppercase">Border Surveillance</h4>
+                      </div>
+                      <p className="text-white/50 text-[11px] leading-relaxed">
+                        Deploying persistent distributed multi-domain radar & acoustic sensors to detect illegal crossings.
+                      </p>
+                    </div>
+
+                    {/* Pillar 4 */}
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300 group">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/20 transition-colors">
+                          <Lock size={16} />
+                        </div>
+                        <h4 className="text-xs font-bold text-white tracking-wide uppercase">Civilian Events</h4>
+                      </div>
+                      <p className="text-white/50 text-[11px] leading-relaxed">
+                        Temporary signal-exclusion zones for VIP escorts, state summits, and public mass gatherings.
+                      </p>
+                    </div>
+
+                  </div>
                 </div>
 
-                <div className="relative aspect-video lg:aspect-square w-full rounded-2xl overflow-hidden border border-white/10 glow-border">
-                  <img 
-                    src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" 
-                    alt="Radar surveillance station" 
-                    className="w-full h-full object-cover opacity-80"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bgDark to-transparent" />
+                {/* Right Visual Column (takes 5 cols) */}
+                <div className="lg:col-span-5 relative">
+                  
+                  {/* Outer HUD Corner Crosshairs */}
+                  <div className="absolute -top-3 -left-3 w-4 h-4 border-t-2 border-l-2 border-blue-500/40 animate-pulse" />
+                  <div className="absolute -top-3 -right-3 w-4 h-4 border-t-2 border-r-2 border-blue-500/40 animate-pulse" />
+                  <div className="absolute -bottom-3 -left-3 w-4 h-4 border-b-2 border-l-2 border-blue-500/40 animate-pulse" />
+                  <div className="absolute -bottom-3 -right-3 w-4 h-4 border-b-2 border-r-2 border-blue-500/40 animate-pulse" />
+
+                  {/* Main Container */}
+                  <div className="relative aspect-square w-full rounded-2xl overflow-hidden border border-white/10 glow-border bg-black/40 flex flex-col justify-between p-4 group">
+                    
+                    {/* Background surveillance photo */}
+                    <img 
+                      src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" 
+                      alt="Radar surveillance station" 
+                      className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-1000"
+                    />
+
+                    {/* Stylized CSS Radar Sweep Sweep Animation overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-bgDark via-bgDark/80 to-transparent pointer-events-none z-0" />
+                    
+                    {/* Custom Radar rotating line & sweep overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none z-[1]">
+                      {/* Radar circular lines */}
+                      <div className="w-[85%] h-[85%] rounded-full border border-blue-500/10 flex items-center justify-center">
+                        <div className="w-[70%] h-[70%] rounded-full border border-blue-500/15 flex items-center justify-center">
+                          <div className="w-[50%] h-[50%] rounded-full border border-blue-500/20" />
+                        </div>
+                      </div>
+                      {/* Rotating line representing radar beam sweep */}
+                      <div className="absolute w-[85%] h-[85%] rounded-full overflow-hidden animate-spin-slow">
+                        <div className="absolute top-1/2 left-1/2 w-1/2 h-0.5 bg-gradient-to-r from-blue-500/30 to-transparent origin-left rotate-0" />
+                      </div>
+                    </div>
+
+                    {/* HUD Status Header */}
+                    <div className="relative z-10 flex items-center justify-between">
+                      <div className="flex items-center gap-2 bg-blue-950/80 border border-blue-500/30 px-2.5 py-1 rounded text-[9px] font-bold text-blue-400 tracking-wider">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                        SYSTEM: ACTIVE
+                      </div>
+                      <div className="text-[9px] font-mono text-white/40 bg-black/40 px-2 py-1 rounded border border-white/5">
+                        TEL: SECURE_LINK
+                      </div>
+                    </div>
+
+                    {/* HUD Center Coordinates / Target */}
+                    <div className="relative z-10 flex flex-col items-center justify-center flex-grow text-center">
+                      <div className="w-12 h-12 rounded-full border border-dashed border-blue-500/40 flex items-center justify-center animate-pulse">
+                        <Crosshair size={20} className="text-blue-400/80" />
+                      </div>
+                      <span className="text-[10px] font-mono text-blue-400/70 tracking-widest mt-2 uppercase">NO THREAT DETECTED</span>
+                    </div>
+
+                    {/* HUD Footer Telemetry */}
+                    <div className="relative z-10 bg-black/75 border border-white/10 p-3 rounded-xl backdrop-blur-md font-mono text-[9px] text-white/70 flex flex-col gap-1.5">
+                      <div className="flex justify-between border-b border-white/5 pb-1 text-blue-400">
+                        <span>SPHERE SCAN: CALGARA_NET</span>
+                        <span>AZIMUTH: 360°</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-x-4">
+                        <div className="flex justify-between">
+                          <span className="text-white/40">LAT:</span>
+                          <span>19.1678° N</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-white/40">ALT:</span>
+                          <span>150m</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-white/40">LON:</span>
+                          <span>72.8542° E</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-white/40">SPD:</span>
+                          <span>0.0 m/s</span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
 
               </div>

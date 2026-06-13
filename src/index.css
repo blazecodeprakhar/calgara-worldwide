@@ -71,3 +71,7 @@ body {
 .font-display {
   font-family: 'Outfit', sans-serif;
 }
+
+@utility animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
