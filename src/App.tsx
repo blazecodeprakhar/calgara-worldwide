@@ -338,7 +338,7 @@ export default function App() {
                       <img 
                         src="/d4-ews.jpg" 
                         alt="D4-EWS Airspace Awareness System Diagram" 
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                        className="w-full h-full object-cover grayscale transition-all duration-700 ease-in-out group-hover:scale-[1.02] group-hover:grayscale-0"
                       />
                     </div>
                     
