@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
     title: "Shield Drone Jammer",
     category: "COUNTER-UAS",
     description: "A compact counter-drone system engineered for mobile security operations and tactical deployments. It provides effective signal disruption against drone threats while maintaining flexibility and ease of use.",
-    imageUrl: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Shield Drone Jammer.png",
     features: [
       "Compact and lightweight",
       "Tactical deployment ready",
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     title: "Portable Jammers",
     category: "COUNTER-UAS",
     description: "Designed to provide flexible and effective drone mitigation wherever security is required. Lightweight construction and rapid deployment capabilities make them suitable for temporary security zones.",
-    imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Portable Jammers.png",
     features: [
       "Lightweight construction",
       "Fast deployment",
@@ -100,7 +100,7 @@ export const PRODUCTS: Product[] = [
     title: "Backpack / Luggage Style Jammer",
     category: "COUNTER-UAS",
     description: "Combines powerful anti-drone capabilities with exceptional portability. Designed for covert and mobile operations, allowing operators to carry advanced jamming technology without bulky equipment.",
-    imageUrl: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Backpack - Luggage Style Jammer.png",
     features: [
       "Portable backpack design",
       "Covert deployment capability",
@@ -120,7 +120,7 @@ export const PRODUCTS: Product[] = [
     title: "Vehicle FPV Jammer",
     category: "COUNTER-UAS",
     description: "Specifically designed to protect vehicles and convoys from FPV drones and other aerial threats. Creates a protective electronic shield around moving assets to reduce vulnerability in hostile environments.",
-    imageUrl: "https://images.unsplash.com/photo-1590422553965-f8c634c0388d?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Vehicle FPV Jammer.png",
     features: [
       "Protection against FPV drones",
       "Mobile deployment capability",
@@ -140,7 +140,7 @@ export const PRODUCTS: Product[] = [
     title: "Vehicle-Mounted Detection Jammer",
     category: "COUNTER-UAS",
     description: "Integrates drone detection and jamming capabilities into a single mobile platform. Provides real-time threat awareness while enabling rapid countermeasures against hostile UAVs during transit.",
-    imageUrl: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Vehicle-Mounted Detection Jammer.png",
     features: [
       "Integrated detection and jamming",
       "Real-time threat identification",
@@ -160,7 +160,7 @@ export const PRODUCTS: Product[] = [
     title: "Stationary Drone Jammer",
     category: "COUNTER-UAS",
     description: "Provides continuous, 24/7 protection for military bases, airports, government facilities, and critical infrastructure. Installed as a fixed security solution delivering reliable wide-area counter-UAV coverage.",
-    imageUrl: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Stationary Drone Jammer.png",
     features: [
       "24/7 operational readiness",
       "Fixed-site deployment",
@@ -180,7 +180,7 @@ export const PRODUCTS: Product[] = [
     title: "Detector & Counter Integrated Jammer",
     category: "COUNTER-UAS",
     description: "This integrated system combines detection, identification, tracking, and jamming functions within a single platform, enabling operators to handle threats in a single workflow.",
-    imageUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Detector & Counter Integrated Jammer.png",
     features: [
       "All-in-one counter-drone solution",
       "Threat detection and tracking",
@@ -200,7 +200,7 @@ export const PRODUCTS: Product[] = [
     title: "Detection & Jammers Backpack",
     category: "COUNTER-UAS",
     description: "A portable counter-UAV solution designed for rapid field deployment. Combining drone detection and mitigation in a compact format, it keeps tactical teams agile and protected.",
-    imageUrl: "https://images.unsplash.com/photo-1533240332313-0db49b439ad3?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Detection & Jammers Backpack.png",
     features: [
       "Portable tactical design",
       "Detection and jamming functions",
