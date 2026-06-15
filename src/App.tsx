@@ -1404,8 +1404,8 @@ export default function App() {
                 <a href="tel:9892599220" className="hover:text-blue-400 transition-colors flex items-center gap-2">
                   <span className="text-white/30">Mob:</span> +91 98925 99220
                 </a>
-                <a href="https://www.calgaraworldwide.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors flex items-center gap-2">
-                  <span className="text-white/30">Web:</span> www.calgaraworldwide.com
+                <a href="mailto:contact@calgaraworldwide.com" className="hover:text-blue-400 transition-colors flex items-center gap-2">
+                  <span className="text-white/30">Email:</span> contact@calgaraworldwide.com
                 </a>
                 <div className="flex items-center gap-2">
                   <span className="text-white/30">GSTIN:</span> 27AAHCC1170H1ZU
