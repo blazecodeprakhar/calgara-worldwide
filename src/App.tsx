@@ -1379,43 +1379,92 @@ export default function App() {
         </main>
       )}
 
-      {/* 8. Footer - Made more professional with page links */}
-      <footer className="relative border-t border-white/5 py-12 bg-bgDark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-          
-          <div className="flex flex-col items-center md:items-start gap-3">
-            <Logo />
-            <div className="text-[10px] text-white/40 tracking-wider text-center md:text-left max-w-xs mt-2">
-              E 201 Globe Heights, Film City Road, Gokuldham, Goregaon East, Mumbai 400063
+      {/* 8. Footer - Made more professional with corporate details and legal links */}
+      <footer className="relative border-t border-white/10 py-16 bg-[#040814] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            
+            {/* Column 1: Brand */}
+            <div className="flex flex-col gap-4">
+              <Logo />
+              <div className="text-xs font-bold tracking-widest text-white/80 uppercase mt-2">
+                CALGARA WORLDWIDE PRIVATE LIMITED
+              </div>
+              <p className="text-[11px] text-white/40 leading-relaxed font-light">
+                Architecting global airspace security, tactical counter-UAS systems, and advanced environmental technologies.
+              </p>
+            </div>
+
+            {/* Column 2: Contact & Registration */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs font-bold tracking-widest text-blue-400 uppercase">
+                Contact & Compliance
+              </h4>
+              <div className="flex flex-col gap-2.5 text-[11px] text-white/60">
+                <a href="tel:9892599220" className="hover:text-blue-400 transition-colors flex items-center gap-2">
+                  <span className="text-white/30">Mob:</span> +91 98925 99220
+                </a>
+                <a href="https://www.calgaraworldwide.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors flex items-center gap-2">
+                  <span className="text-white/30">Web:</span> www.calgaraworldwide.com
+                </a>
+                <div className="flex items-center gap-2">
+                  <span className="text-white/30">GSTIN:</span> 27AAHCC1170H1ZU
+                </div>
+              </div>
+            </div>
+
+            {/* Column 3: Address */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs font-bold tracking-widest text-blue-400 uppercase">
+                Registered Office
+              </h4>
+              <p className="text-[11px] text-white/60 leading-relaxed font-light">
+                Gat No 357/95, Plot No 4,<br />
+                Behind Green Park Hotel,<br />
+                Waghjaai Nagar, Kharabwadi,<br />
+                Chakan MIDC, Chakan - 410050
+              </p>
+            </div>
+
+            {/* Column 4: Links & Security */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs font-bold tracking-widest text-blue-400 uppercase">
+                Legal & Security
+              </h4>
+              <div className="flex flex-col items-start gap-2.5 text-[11px] font-semibold tracking-wider text-white/40">
+                <button 
+                  onClick={() => setCurrentPage('privacy')}
+                  className="hover:text-blue-400 transition-colors uppercase text-left"
+                >
+                  PRIVACY POLICY
+                </button>
+                <button 
+                  onClick={() => setCurrentPage('terms')}
+                  className="hover:text-blue-400 transition-colors uppercase text-left"
+                >
+                  TERMS OF USE
+                </button>
+                <button 
+                  onClick={() => setCurrentPage('security')}
+                  className="hover:text-blue-400 transition-colors uppercase text-left"
+                >
+                  SECURITY DISCLAIMERS
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom Copyright bar */}
+          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-white/30 tracking-wider">
+            <div>
+              &copy; {new Date().getFullYear()} Calgara Worldwide Private Limited. All rights reserved.
+            </div>
+            <div className="text-center sm:text-right">
+              All specifications and materials restricted to authorized clients and government agencies.
             </div>
           </div>
 
-          {/* Professional Document Links */}
-          <div className="flex flex-wrap justify-center gap-6 text-xs font-semibold tracking-wider text-white/40">
-            <button 
-              onClick={() => setCurrentPage('privacy')}
-              className="hover:text-blue-400 transition-colors uppercase"
-            >
-              PRIVACY POLICY
-            </button>
-            <button 
-              onClick={() => setCurrentPage('terms')}
-              className="hover:text-blue-400 transition-colors uppercase"
-            >
-              TERMS OF USE
-            </button>
-            <button 
-              onClick={() => setCurrentPage('security')}
-              className="hover:text-blue-400 transition-colors uppercase"
-            >
-              SECURITY DISCLAIMERS
-            </button>
-          </div>
-
-          <div className="text-[10px] text-white/30 tracking-wider text-center md:text-right">
-            &copy; {new Date().getFullYear()} Calgara worldwide. <br />
-            All specifications and materials restricted to authorized clients.
-          </div>
         </div>
       </footer>
 
