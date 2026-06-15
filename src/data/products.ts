@@ -19,7 +19,7 @@ export const PRODUCTS: Product[] = [
     title: "Interceptor AI Drone GEN3",
     category: "COUNTER-UAS",
     description: "An advanced autonomous counter-drone system developed to detect, track, and neutralize hostile UAVs with exceptional precision. Powered by AI-driven target recognition and intelligent tracking technology.",
-    imageUrl: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/product-images/Interceptor AI Drone GEN3.png",
     features: [
       "AI-powered target tracking",
       "Autonomous interception capability",
