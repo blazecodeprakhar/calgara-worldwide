@@ -849,12 +849,18 @@ export default function App() {
                 
                 {/* Left Content Column (takes 7 cols) */}
                 <div className="lg:col-span-7">
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                  <div className="flex flex-wrap items-center gap-3.5 mb-3">
+                    <div className="flex items-center gap-2.5">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                      </span>
+                      <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Operational Mission</span>
+                    </div>
+                    <span className="text-white/20 hidden sm:inline">|</span>
+                    <span className="text-[10px] bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded text-blue-400 font-bold tracking-wider uppercase">
+                      Make In India
                     </span>
-                    <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Operational Mission</span>
                   </div>
                   
                   <h2 className="font-display font-bold text-3xl md:text-5xl tracking-tight text-white mb-6 leading-tight">
@@ -863,6 +869,9 @@ export default function App() {
 
                   <p className="text-white/60 text-xs sm:text-sm md:text-base leading-relaxed mb-6 font-light">
                     Calgara worldwide develops intelligence-led countermeasures to neutralize critical airspace vulnerabilities. We prioritize advanced RF scanning, directional interference networks, and intelligent kinetic drones built to operate seamlessly under severe operational environments.
+                  </p>
+                  <p className="text-white/60 text-xs sm:text-sm md:text-base leading-relaxed mb-6 font-light">
+                    Aligned with the national vision of self-reliance, Calgara's systems are proudly designed, developed, and manufactured under the <span className="text-blue-400 font-semibold">"Make in India"</span> initiative, delivering state-of-the-art defense technology to safeguard critical airspace.
                   </p>
                   <p className="text-white/60 text-xs sm:text-sm md:text-base leading-relaxed mb-10 font-light">
                     Our global footprint is backed by real engineering innovation and a dedicated commitment to environmental conservation through custom separation systems.
@@ -1012,6 +1021,39 @@ export default function App() {
                     </div>
 
                   </div>
+
+                  {/* Government Certifications & Initiatives */}
+                  <div className="mt-6">
+                    <h4 className="text-[10px] font-bold tracking-wider text-white/40 uppercase mb-3 text-center lg:text-left">
+                      National Defense & Enterprise Recognition
+                    </h4>
+                    <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex items-center justify-around gap-4 hover:border-blue-500/20 hover:bg-white/[0.03] transition-all duration-300 backdrop-blur-sm">
+                      <div className="flex items-center justify-center h-12 w-1/3">
+                        <img 
+                          src="/make_in_india.png" 
+                          className="h-10 w-auto object-contain opacity-85 hover:opacity-100 hover:scale-105 transition-all duration-300" 
+                          alt="Make in India" 
+                        />
+                      </div>
+                      <div className="w-px h-8 bg-white/10" />
+                      <div className="flex items-center justify-center h-12 w-1/3">
+                        <img 
+                          src="/startup_india.png" 
+                          className="h-7 w-auto object-contain opacity-85 hover:opacity-100 hover:scale-105 transition-all duration-300" 
+                          alt="Startup India" 
+                        />
+                      </div>
+                      <div className="w-px h-8 bg-white/10" />
+                      <div className="flex items-center justify-center h-12 w-1/3">
+                        <img 
+                          src="/msme.png" 
+                          className="h-8 w-auto object-contain bg-white/95 rounded p-1 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300" 
+                          alt="Ministry of MSME" 
+                        />
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
 
               </div>
@@ -1055,10 +1097,24 @@ export default function App() {
                         <Mail size={18} />
                       </div>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-white/50 uppercase">Direct Email</h4>
-                        <p className="text-xs sm:text-sm text-blue-400 font-semibold mt-1 hover:text-blue-300 transition-colors">
-                          contact@calgaraworldwide.com
-                        </p>
+                        <h4 className="text-[10px] font-bold tracking-wider text-white/55 uppercase">Direct Email</h4>
+                        <a href="mailto:contactus@calgaraworldwide.com" className="text-xs sm:text-sm text-blue-400 font-semibold mt-1 hover:text-blue-300 transition-colors block">
+                          contactus@calgaraworldwide.com
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-[#25D366]/10 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] flex-shrink-0 shadow-lg shadow-[#25D366]/5 hover:bg-[#25D366]/20 transition-all duration-300">
+                        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+                          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-[10px] font-bold tracking-wider text-white/50 uppercase">WhatsApp</h4>
+                        <a href="https://wa.me/919892599220" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-[#25D366] font-semibold mt-1 hover:text-[#1ebd5b] transition-colors block">
+                          +91 98925 99220
+                        </a>
                       </div>
                     </div>
 
@@ -1393,6 +1449,27 @@ export default function App() {
               <p className="text-[11px] text-white/40 leading-relaxed font-light">
                 Architecting global airspace security, tactical counter-UAS systems, and advanced environmental technologies.
               </p>
+              
+              {/* Social Media Profiles */}
+              <div className="flex items-center gap-3 mt-2">
+                <a href="#" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-blue-400 hover:border-blue-500/30 transition-all duration-300" title="Facebook" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </a>
+                <a href="#" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-blue-400 hover:border-blue-500/30 transition-all duration-300" title="Instagram" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+                <a href="#" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-blue-400 hover:border-blue-500/30 transition-all duration-300" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+              </div>
             </div>
 
             {/* Column 2: Contact & Registration */}
@@ -1404,8 +1481,8 @@ export default function App() {
                 <a href="tel:9892599220" className="hover:text-blue-400 transition-colors flex items-center gap-2">
                   <span className="text-white/30">Mob:</span> +91 98925 99220
                 </a>
-                <a href="mailto:contact@calgaraworldwide.com" className="hover:text-blue-400 transition-colors flex items-center gap-2">
-                  <span className="text-white/30">Email:</span> contact@calgaraworldwide.com
+                <a href="mailto:contactus@calgaraworldwide.com" className="hover:text-blue-400 transition-colors flex items-center gap-2">
+                  <span className="text-white/30">Email:</span> contactus@calgaraworldwide.com
                 </a>
                 <div className="flex items-center gap-2">
                   <span className="text-white/30">GSTIN:</span> 27AAHCC1170H1ZU
