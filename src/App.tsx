@@ -24,7 +24,8 @@ import {
   Activity,
   Award,
   Building,
-  Info
+  Info,
+  Globe
 } from 'lucide-react';
 import { Logo } from './components/Logo';
 import { PRODUCTS, type Product } from './data/products';
@@ -1060,6 +1061,132 @@ export default function App() {
             </div>
           </section>
 
+          {/* Core Team / Leadership Section */}
+          <section id="team" className="relative py-24 border-t border-white/5 bg-[#030712]/40 overflow-hidden">
+            {/* Ambient glows */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+              
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Leadership & Strategy</span>
+                <h2 className="font-display font-bold text-3xl md:text-5xl tracking-tight text-white mt-2 mb-6">
+                  Core Team
+                </h2>
+                <p className="text-white/60 text-xs sm:text-sm md:text-base leading-relaxed font-light">
+                  Calgara's strategic leadership brings together military operational excellence and advanced technology innovation.
+                </p>
+              </div>
+
+              {/* Founders / Executive Command */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+                
+                {/* Ravi Kumar */}
+                <div className="relative group p-6 rounded-2xl bg-white/[0.01] border border-white/10 hover:border-blue-500/35 hover:bg-white/[0.03] transition-all duration-500 backdrop-blur-sm flex flex-col justify-between overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/5 rounded-full blur-2xl pointer-events-none group-hover:bg-blue-600/10 transition-all duration-500" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-blue-950/50 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:border-blue-500/50 transition-all duration-300">
+                      <ShieldCheck size={24} />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-lg text-white group-hover:text-blue-300 transition-colors">
+                        Ravi Kumar
+                      </h4>
+                      <span className="text-xs font-bold tracking-wider text-blue-400 uppercase">
+                        Founder and CEO
+                      </span>
+                      <p className="text-[11px] text-white/50 leading-relaxed font-light mt-3">
+                        Spearheading strategic vision, technology deployments, and global counter-UAS compliance frameworks.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Siddharth Keshavani */}
+                <div className="relative group p-6 rounded-2xl bg-white/[0.01] border border-white/10 hover:border-blue-500/35 hover:bg-white/[0.03] transition-all duration-500 backdrop-blur-sm flex flex-col justify-between overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/5 rounded-full blur-2xl pointer-events-none group-hover:bg-blue-600/10 transition-all duration-500" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-blue-950/50 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:border-blue-500/50 transition-all duration-300">
+                      <Cpu size={24} />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-lg text-white group-hover:text-blue-300 transition-colors">
+                        Siddharth Keshavani
+                      </h4>
+                      <span className="text-xs font-bold tracking-wider text-blue-400 uppercase">
+                        Founder & COO
+                      </span>
+                      <p className="text-[11px] text-white/50 leading-relaxed font-light mt-3">
+                        Overseeing product execution, field testing procedures, and environmental division operations.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Advisory Board */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                
+                {/* Major General Vikrant Naik */}
+                <div className="relative group p-5 rounded-xl bg-white/[0.01] border border-white/5 hover:border-blue-500/25 hover:bg-white/[0.02] transition-all duration-500 backdrop-blur-sm flex flex-col justify-between overflow-hidden">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/15 flex items-center justify-center text-blue-400/80 group-hover:border-blue-500/40 transition-all duration-300">
+                      <Award size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-sm text-white group-hover:text-blue-300 transition-colors">
+                        Major General Vikrant Naik (Retd.)
+                      </h4>
+                      <p className="text-[10px] text-white/40 leading-relaxed font-light mt-2">
+                        Leading strategic defense guidance, infrastructure consulting, and military-grade security alignments.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Wing Commander Pankaj Saxena */}
+                <div className="relative group p-5 rounded-xl bg-white/[0.01] border border-white/5 hover:border-blue-500/25 hover:bg-white/[0.02] transition-all duration-500 backdrop-blur-sm flex flex-col justify-between overflow-hidden">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/15 flex items-center justify-center text-blue-400/80 group-hover:border-blue-500/40 transition-all duration-300">
+                      <Radar size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-sm text-white group-hover:text-blue-300 transition-colors">
+                        Wing Commander Pankaj Saxena (Retd.)
+                      </h4>
+                      <p className="text-[10px] text-white/40 leading-relaxed font-light mt-2">
+                        Directing aviation systems engineering, aerospace security protocols, and tactical radar/interference telemetry.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Atul Gupta */}
+                <div className="relative group p-5 rounded-xl bg-white/[0.01] border border-white/5 hover:border-blue-500/25 hover:bg-white/[0.02] transition-all duration-500 backdrop-blur-sm flex flex-col justify-between overflow-hidden">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/15 flex items-center justify-center text-blue-400/80 group-hover:border-blue-500/40 transition-all duration-300">
+                      <Scale size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-sm text-white group-hover:text-blue-300 transition-colors">
+                        Atul Gupta
+                      </h4>
+                      <span className="text-[9px] font-bold tracking-wider text-blue-400/80 uppercase block mt-0.5">
+                        Strategic Advisor
+                      </span>
+                      <p className="text-[10px] text-white/40 leading-relaxed font-light mt-2">
+                        Formulating international operations strategy, joint venture agreements, and regulatory positioning.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
           {/* 7. Contact / Form Section */}
           <section id="contact" className="relative py-24 border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -1094,12 +1221,27 @@ export default function App() {
 
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-lg bg-blue-900/30 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
+                        <Globe size={18} />
+                      </div>
+                      <div>
+                        <h4 className="text-[10px] font-bold tracking-wider text-white/50 uppercase">Global Locations</h4>
+                        <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-semibold mt-1">
+                          Oman | United Arab Emirates | United Kingdom | Singapore
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-blue-900/30 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
                         <Mail size={18} />
                       </div>
                       <div>
                         <h4 className="text-[10px] font-bold tracking-wider text-white/55 uppercase">Direct Email</h4>
                         <a href="mailto:contactus@calgaraworldwide.com" className="text-xs sm:text-sm text-blue-400 font-semibold mt-1 hover:text-blue-300 transition-colors block">
                           contactus@calgaraworldwide.com
+                        </a>
+                        <a href="mailto:info.calgara@gmail.com" className="text-xs sm:text-sm text-blue-400 font-semibold mt-0.5 hover:text-blue-300 transition-colors block">
+                          info.calgara@gmail.com
                         </a>
                       </div>
                     </div>
@@ -1111,10 +1253,15 @@ export default function App() {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-white/50 uppercase">WhatsApp</h4>
-                        <a href="https://wa.me/919892599220" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-[#25D366] font-semibold mt-1 hover:text-[#1ebd5b] transition-colors block">
-                          +91 98925 99220
-                        </a>
+                        <h4 className="text-[10px] font-bold tracking-wider text-white/50 uppercase">WhatsApp & Mobile</h4>
+                        <div className="flex flex-col gap-1 mt-1 font-semibold">
+                          <a href="https://wa.me/919892599220" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-[#25D366] hover:text-[#1ebd5b] transition-colors block">
+                            +91 98925 99220 <span className="text-[10px] text-white/40 font-normal ml-1">(WhatsApp / Call)</span>
+                          </a>
+                          <a href="tel:+917777022666" className="text-xs sm:text-sm text-blue-400 hover:text-blue-300 transition-colors block">
+                            +91 77770 22666 <span className="text-[10px] text-white/40 font-normal ml-1">(Call)</span>
+                          </a>
+                        </div>
                       </div>
                     </div>
 
@@ -1477,14 +1624,26 @@ export default function App() {
               <h4 className="text-xs font-bold tracking-widest text-blue-400 uppercase">
                 Contact & Compliance
               </h4>
-              <div className="flex flex-col gap-2.5 text-[11px] text-white/60">
-                <a href="tel:9892599220" className="hover:text-blue-400 transition-colors flex items-center gap-2">
-                  <span className="text-white/30">Mob:</span> +91 98925 99220
-                </a>
-                <a href="mailto:contactus@calgaraworldwide.com" className="hover:text-blue-400 transition-colors flex items-center gap-2">
-                  <span className="text-white/30">Email:</span> contactus@calgaraworldwide.com
-                </a>
-                <div className="flex items-center gap-2">
+              <div className="flex flex-col gap-3 text-[11px] text-white/60">
+                <div className="flex flex-col gap-1">
+                  <span className="text-white/30">Mob:</span>
+                  <a href="tel:+919892599220" className="hover:text-blue-400 transition-colors">
+                    +91 98925 99220
+                  </a>
+                  <a href="tel:+917777022666" className="hover:text-blue-400 transition-colors">
+                    +91 77770 22666
+                  </a>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-white/30">Email:</span>
+                  <a href="mailto:contactus@calgaraworldwide.com" className="hover:text-blue-400 transition-colors">
+                    contactus@calgaraworldwide.com
+                  </a>
+                  <a href="mailto:info.calgara@gmail.com" className="hover:text-blue-400 transition-colors">
+                    info.calgara@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
                   <span className="text-white/30">GSTIN:</span> 27AAHCC1170H1ZU
                 </div>
               </div>
@@ -1493,7 +1652,7 @@ export default function App() {
             {/* Column 3: Address */}
             <div className="flex flex-col gap-4">
               <h4 className="text-xs font-bold tracking-widest text-blue-400 uppercase">
-                Registered Office
+                Factory Address
               </h4>
               <p className="text-[11px] text-white/60 leading-relaxed font-light">
                 Gat No 357/95, Plot No 4,<br />
@@ -1501,6 +1660,14 @@ export default function App() {
                 Waghjaai Nagar, Kharabwadi,<br />
                 Chakan MIDC, Chakan - 410050
               </p>
+              <div className="mt-1 pt-2 border-t border-white/5">
+                <h5 className="text-[9px] font-bold tracking-wider text-blue-400 uppercase mb-1">
+                  Locations
+                </h5>
+                <p className="text-[10px] text-white/50 leading-relaxed font-light">
+                  Oman | United Arab Emirates | United Kingdom | Singapore
+                </p>
+              </div>
             </div>
 
             {/* Column 4: Links & Security */}
@@ -1694,6 +1861,19 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Floating WhatsApp Chat Button */}
+      <a 
+        href="https://wa.me/919892599220" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-[#20ba5a] focus:outline-none active:scale-95 border border-[#25D366]/20 cursor-pointer"
+        title="Chat on WhatsApp"
+      >
+        <svg viewBox="0 0 16 16" width="28" height="28" fill="currentColor" className="relative z-10">
+          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+        </svg>
+      </a>
 
     </div>
   );
