@@ -60,9 +60,9 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  // Lock scroll when modal is open
+  // Lock scroll when modal or mobile menu is open
   useEffect(() => {
-    if (selectedProduct || d4EwsImageOpen) {
+    if (selectedProduct || d4EwsImageOpen || mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -70,7 +70,7 @@ export default function App() {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [selectedProduct, d4EwsImageOpen]);
+  }, [selectedProduct, d4EwsImageOpen, mobileMenuOpen]);
 
   const categories = ['ALL', 'COUNTER-UAS', 'DETECTION & RADAR', 'SECURITY SYSTEMS', 'ENVIRONMENTAL'];
 
@@ -106,12 +106,12 @@ export default function App() {
     <div className="relative min-h-screen bg-bgDark text-white overflow-x-hidden font-sans flex flex-col justify-between">
       
       {/* 1. Header (Navbar) */}
-      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-bgDark/95 backdrop-blur-lg border-b border-white/10 shadow-lg shadow-black/40 py-4' 
-          : 'bg-transparent border-b border-transparent py-6'
+      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled || mobileMenuOpen
+          ? 'bg-[#030712]/95 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/50 py-3.5 sm:py-4' 
+          : 'bg-transparent border-b border-transparent py-5 sm:py-6'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between relative z-30">
           <div 
             className="cursor-pointer flex items-center" 
             onClick={() => {
@@ -172,69 +172,89 @@ export default function App() {
             </button>
           </div>
 
-          {/* Custom Morphing Hamburger Button */}
+          {/* Animated Hamburger Button */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 relative focus:outline-none z-50"
-            aria-label="Toggle Menu"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 border border-white/10 text-white focus:outline-none transition-all duration-200 relative z-50 group"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
-            <span className={`block absolute h-0.5 w-6 bg-white/80 transition-all duration-300 ease-in-out ${
-              mobileMenuOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
-            }`} />
-            <span className={`block absolute h-0.5 w-6 bg-white/80 transition-all duration-300 ease-in-out ${
-              mobileMenuOpen ? 'opacity-0' : 'opacity-100'
-            }`} />
-            <span className={`block absolute h-0.5 w-6 bg-white/80 transition-all duration-300 ease-in-out ${
-              mobileMenuOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'
-            }`} />
+            <div className="w-5 h-4 relative flex flex-col justify-between">
+              <span className={`block h-0.5 w-full bg-white rounded-full transition-all duration-300 ease-in-out origin-center ${
+                mobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
+              }`} />
+              <span className={`block h-0.5 w-full bg-white rounded-full transition-all duration-200 ease-in-out ${
+                mobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+              }`} />
+              <span className={`block h-0.5 w-full bg-white rounded-full transition-all duration-300 ease-in-out origin-center ${
+                mobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
+              }`} />
+            </div>
           </button>
         </div>
 
-        {/* Mobile Navigation Drawer with smooth animations */}
-        <div className={`md:hidden absolute top-full left-0 w-full bg-bgDark/98 border-b border-white/10 backdrop-blur-xl px-6 py-8 flex flex-col gap-6 shadow-xl transition-all duration-300 ease-in-out ${
+        {/* Full-screen Backdrop with Blur for Mobile Menu */}
+        <div 
+          onClick={() => setMobileMenuOpen(false)}
+          className={`md:hidden fixed inset-0 bg-black/80 backdrop-blur-md transition-all duration-300 -z-10 ${
+            mobileMenuOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'
+          }`}
+          aria-hidden="true"
+        />
+
+        {/* Mobile Navigation Drawer with solid background and clean UI */}
+        <div className={`md:hidden absolute top-full left-0 w-full bg-[#030712] border-b border-white/10 px-5 py-5 flex flex-col gap-3 shadow-2xl shadow-black transition-all duration-300 ease-in-out z-30 ${
           mobileMenuOpen 
-            ? 'opacity-100 translate-y-0 pointer-events-auto' 
-            : 'opacity-0 -translate-y-4 pointer-events-none'
+            ? 'opacity-100 translate-y-0 pointer-events-auto visible' 
+            : 'opacity-0 -translate-y-4 pointer-events-none invisible'
         }`}>
-          <button 
-            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('d4-ews')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-          >
-            D⁴-EWS System
-          </button>
-          <button 
-            onClick={() => { setCurrentPage('jammers'); setMobileMenuOpen(false); window.scrollTo(0, 0); }} 
-            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-          >
-            Jammer Series
-          </button>
-          <button 
-            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('systems')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-          >
-            Systems
-          </button>
-          <button 
-            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('capabilities')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-          >
-            Capabilities
-          </button>
-          <button 
-            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-          >
-            About
-          </button>
-          <button 
-            onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
-            className="text-left text-base font-semibold tracking-wide text-white/80 hover:text-white"
-          >
-            Contact
-          </button>
+          <div className="flex flex-col gap-1 pb-3 border-b border-white/10">
+            <button 
+              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('d4-ews')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+              className={`text-left px-3.5 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 flex items-center justify-between ${
+                currentPage === 'home' ? 'text-white bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <span>D⁴-EWS System</span>
+              <span className="text-[10px] uppercase font-bold tracking-widest text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">Featured</span>
+            </button>
+            <button 
+              onClick={() => { setCurrentPage('jammers'); setMobileMenuOpen(false); window.scrollTo(0, 0); }} 
+              className={`text-left px-3.5 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 flex items-center justify-between ${
+                currentPage === 'jammers' ? 'text-blue-400 bg-blue-500/10 border border-blue-500/20' : 'text-white/80 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <span>Jammer Series</span>
+              <span className="text-[10px] uppercase tracking-wider text-white/40">14 Systems</span>
+            </button>
+            <button 
+              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('systems')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+              className="text-left px-3.5 py-2.5 rounded-lg text-sm font-semibold tracking-wide text-white/80 hover:text-white hover:bg-white/5 transition-all duration-200"
+            >
+              Systems
+            </button>
+            <button 
+              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('capabilities')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+              className="text-left px-3.5 py-2.5 rounded-lg text-sm font-semibold tracking-wide text-white/80 hover:text-white hover:bg-white/5 transition-all duration-200"
+            >
+              Capabilities
+            </button>
+            <button 
+              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+              className="text-left px-3.5 py-2.5 rounded-lg text-sm font-semibold tracking-wide text-white/80 hover:text-white hover:bg-white/5 transition-all duration-200"
+            >
+              About
+            </button>
+            <button 
+              onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}), 100); }} 
+              className="text-left px-3.5 py-2.5 rounded-lg text-sm font-semibold tracking-wide text-white/80 hover:text-white hover:bg-white/5 transition-all duration-200"
+            >
+              Contact
+            </button>
+          </div>
+
           <button 
             onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); setTimeout(() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}), 100); }}
-            className="py-3 text-center rounded-lg text-sm font-semibold bg-blue-600 text-white"
+            className="w-full py-3 text-center rounded-xl text-xs font-bold tracking-widest uppercase bg-blue-600 hover:bg-blue-500 active:scale-[0.99] text-white shadow-lg shadow-blue-600/30 transition-all duration-200"
           >
             Request Details
           </button>
