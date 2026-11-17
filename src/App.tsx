@@ -112,7 +112,13 @@ export default function App() {
           : 'bg-transparent border-b border-transparent py-6'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-          <div className="cursor-pointer" onClick={() => setCurrentPage('home')}>
+          <div 
+            className="cursor-pointer flex items-center" 
+            onClick={() => {
+              setCurrentPage('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
             <Logo />
           </div>
           
