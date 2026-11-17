@@ -337,8 +337,10 @@ export default function App() {
                     
                     <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-black/40">
                       <img 
-                        src="/d4-ews.jpg" 
+                        src="/d4-ews.webp" 
                         alt="D4-EWS Airspace Awareness System Diagram" 
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover grayscale transition-all duration-700 ease-in-out group-hover:scale-[1.02] group-hover:grayscale-0"
                       />
                     </div>
@@ -799,6 +801,8 @@ export default function App() {
                       <img 
                         src={product.imageUrl} 
                         alt={product.title} 
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
                       <div className="absolute top-4 left-4">
@@ -1031,7 +1035,9 @@ export default function App() {
                     <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex items-center justify-around gap-4 hover:border-blue-500/20 hover:bg-white/[0.03] transition-all duration-300 backdrop-blur-sm">
                       <div className="flex items-center justify-center h-12 w-1/3">
                         <img 
-                          src="/make_in_india.png" 
+                          src="/make_in_india.webp" 
+                          loading="lazy"
+                          decoding="async"
                           className="h-10 w-auto object-contain opacity-85 hover:opacity-100 hover:scale-105 transition-all duration-300" 
                           alt="Make in India" 
                         />
@@ -1039,7 +1045,9 @@ export default function App() {
                       <div className="w-px h-8 bg-white/10" />
                       <div className="flex items-center justify-center h-12 w-1/3">
                         <img 
-                          src="/startup_india.png" 
+                          src="/startup_india.webp" 
+                          loading="lazy"
+                          decoding="async"
                           className="h-7 w-auto object-contain opacity-85 hover:opacity-100 hover:scale-105 transition-all duration-300" 
                           alt="Startup India" 
                         />
@@ -1047,7 +1055,9 @@ export default function App() {
                       <div className="w-px h-8 bg-white/10" />
                       <div className="flex items-center justify-center h-12 w-1/3">
                         <img 
-                          src="/msme.png" 
+                          src="/msme.webp" 
+                          loading="lazy"
+                          decoding="async"
                           className="h-8 w-auto object-contain bg-white/95 rounded p-1 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300" 
                           alt="Ministry of MSME" 
                         />
@@ -1409,6 +1419,8 @@ export default function App() {
                       <img 
                         src={product.imageUrl} 
                         alt={product.title} 
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute top-4 left-4">
@@ -1844,8 +1856,10 @@ export default function App() {
             </div>
             <div className="relative w-full overflow-hidden bg-black/40 p-2 flex items-center justify-center">
               <img 
-                src="/d4-ews.jpg" 
+                src="/d4-ews.webp" 
                 alt="D4-EWS Airspace Awareness System Diagram" 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-inner cursor-zoom-out"
                 onClick={() => setD4EwsImageOpen(false)}
               />

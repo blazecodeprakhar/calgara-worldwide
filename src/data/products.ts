@@ -19,7 +19,7 @@ export const PRODUCTS: Product[] = [
     title: "Interceptor AI Drone GEN3",
     category: "COUNTER-UAS",
     description: "An advanced autonomous counter-drone system developed to detect, track, and neutralize hostile UAVs with exceptional precision. Powered by AI-driven target recognition and intelligent tracking technology.",
-    imageUrl: "/product-images/Interceptor AI Drone GEN3.png",
+    imageUrl: "/product-images/Interceptor AI Drone GEN3.webp",
     features: [
       "AI-powered target tracking",
       "Autonomous interception capability",
@@ -40,7 +40,7 @@ export const PRODUCTS: Product[] = [
     title: "Jammer Gun",
     category: "COUNTER-UAS",
     description: "Lightweight and portable anti-drone solution designed for fast and effective response against unauthorized UAV activity. Its ergonomic design allows operators to quickly engage drone threats while maintaining mobility.",
-    imageUrl: "/product-images/Jammer Gun.png",
+    imageUrl: "/product-images/Jammer Gun.webp",
     features: [
       "Handheld portable design",
       "Easy operation",
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
     title: "Shield Drone Jammer",
     category: "COUNTER-UAS",
     description: "A compact counter-drone system engineered for mobile security operations and tactical deployments. It provides effective signal disruption against drone threats while maintaining flexibility and ease of use.",
-    imageUrl: "/product-images/Shield Drone Jammer.png",
+    imageUrl: "/product-images/Shield Drone Jammer.webp",
     features: [
       "Compact and lightweight",
       "Tactical deployment ready",
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     title: "Portable Jammers",
     category: "COUNTER-UAS",
     description: "Designed to provide flexible and effective drone mitigation wherever security is required. Lightweight construction and rapid deployment capabilities make them suitable for temporary security zones.",
-    imageUrl: "/product-images/Portable Jammers.png",
+    imageUrl: "/product-images/Portable Jammers.webp",
     features: [
       "Lightweight construction",
       "Fast deployment",
@@ -100,7 +100,7 @@ export const PRODUCTS: Product[] = [
     title: "Backpack / Luggage Style Jammer",
     category: "COUNTER-UAS",
     description: "Combines powerful anti-drone capabilities with exceptional portability. Designed for covert and mobile operations, allowing operators to carry advanced jamming technology without bulky equipment.",
-    imageUrl: "/product-images/Backpack - Luggage Style Jammer.png",
+    imageUrl: "/product-images/Backpack - Luggage Style Jammer.webp",
     features: [
       "Portable backpack design",
       "Covert deployment capability",
@@ -120,7 +120,7 @@ export const PRODUCTS: Product[] = [
     title: "Vehicle FPV Jammer",
     category: "COUNTER-UAS",
     description: "Specifically designed to protect vehicles and convoys from FPV drones and other aerial threats. Creates a protective electronic shield around moving assets to reduce vulnerability in hostile environments.",
-    imageUrl: "/product-images/Vehicle FPV Jammer.png",
+    imageUrl: "/product-images/Vehicle FPV Jammer.webp",
     features: [
       "Protection against FPV drones",
       "Mobile deployment capability",
@@ -140,7 +140,7 @@ export const PRODUCTS: Product[] = [
     title: "Vehicle-Mounted Detection Jammer",
     category: "COUNTER-UAS",
     description: "Integrates drone detection and jamming capabilities into a single mobile platform. Provides real-time threat awareness while enabling rapid countermeasures against hostile UAVs during transit.",
-    imageUrl: "/product-images/Vehicle-Mounted Detection Jammer.png",
+    imageUrl: "/product-images/Vehicle-Mounted Detection Jammer.webp",
     features: [
       "Integrated detection and jamming",
       "Real-time threat identification",
@@ -160,7 +160,7 @@ export const PRODUCTS: Product[] = [
     title: "Stationary Drone Jammer",
     category: "COUNTER-UAS",
     description: "Provides continuous, 24/7 protection for military bases, airports, government facilities, and critical infrastructure. Installed as a fixed security solution delivering reliable wide-area counter-UAV coverage.",
-    imageUrl: "/product-images/Stationary Drone Jammer.png",
+    imageUrl: "/product-images/Stationary Drone Jammer.webp",
     features: [
       "24/7 operational readiness",
       "Fixed-site deployment",
@@ -180,7 +180,7 @@ export const PRODUCTS: Product[] = [
     title: "Detector & Counter Integrated Jammer",
     category: "COUNTER-UAS",
     description: "This integrated system combines detection, identification, tracking, and jamming functions within a single platform, enabling operators to handle threats in a single workflow.",
-    imageUrl: "/product-images/Detector & Counter Integrated Jammer.png",
+    imageUrl: "/product-images/Detector & Counter Integrated Jammer.webp",
     features: [
       "All-in-one counter-drone solution",
       "Threat detection and tracking",
@@ -200,7 +200,7 @@ export const PRODUCTS: Product[] = [
     title: "Detection & Jammers Backpack",
     category: "COUNTER-UAS",
     description: "A portable counter-UAV solution designed for rapid field deployment. Combining drone detection and mitigation in a compact format, it keeps tactical teams agile and protected.",
-    imageUrl: "/product-images/Detection & Jammers Backpack.png",
+    imageUrl: "/product-images/Detection & Jammers Backpack.webp",
     features: [
       "Portable tactical design",
       "Detection and jamming functions",
@@ -220,7 +220,7 @@ export const PRODUCTS: Product[] = [
     title: "UAD-100 Handheld UAV Detector",
     category: "DETECTION & RADAR",
     description: "A compact drone detection device designed for real-time identification and monitoring of UAV activity. Uses advanced signal analysis to detect commercial, custom, and FPV drones.",
-    imageUrl: "/product-images/UAD-100 Handheld UAV Detector.png",
+    imageUrl: "/product-images/UAD-100 Handheld UAV Detector.webp",
     features: [
       "Multi-UAV detection capability",
       "Remote ID decoding",
@@ -240,7 +240,7 @@ export const PRODUCTS: Product[] = [
     title: "Oil-Water Separation System",
     category: "ENVIRONMENTAL",
     description: "An advanced environmental protection solution designed to remove oil and petroleum contaminants from water surfaces. Continuously purifies water to support industrial safety and eco-conservation.",
-    imageUrl: "/product-images/Oil-Water Separation System.png",
+    imageUrl: "/product-images/Oil-Water Separation System.webp",
     features: [
       "Continuous separation process",
       "High purification efficiency",
@@ -260,7 +260,7 @@ export const PRODUCTS: Product[] = [
     title: "Bi-Section EM Fence",
     category: "SECURITY SYSTEMS",
     description: "An intelligent perimeter security solution designed to detect unauthorized intrusions with high accuracy. Creates an invisible electromagnetic protective barrier around sensitive locations.",
-    imageUrl: "/product-images/Bi-Section EM Fence.png",
+    imageUrl: "/product-images/Bi-Section EM Fence.webp",
     features: [
       "Invisible security barrier",
       "High detection accuracy",
@@ -280,7 +280,7 @@ export const PRODUCTS: Product[] = [
     title: "4-Layer Protected System (D⁴-EWS)",
     category: "DETECTION & RADAR",
     description: "A multi-layer airspace awareness and early warning system developed to detect, track, and classify low-altitude aerial threats using integrated radar, RF sensing, acoustic, and electro-optical sensors.",
-    imageUrl: "/product-images/4-Layer Protected System (D⁴-EWS).png",
+    imageUrl: "/product-images/4-Layer Protected System (D⁴-EWS).webp",
     features: [
       "Four-layer detection architecture",
       "Long-range surveillance capability",
